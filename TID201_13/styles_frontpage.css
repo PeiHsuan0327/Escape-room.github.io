@@ -1,0 +1,360 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* 將 logo 和 nav 分開排列 */
+    align-items: center; /* 垂直居中對齊 */
+    background-color: #000;
+    color: white;
+    padding: 10px;
+}
+
+header div {
+    display: flex;
+    align-items: center; /* 圖片和標題垂直居中 */
+}
+
+header img {
+    width: 100px; /* 調整圖片大小 */
+    margin-left: 20px;
+    margin-right: 10px; /* 圖片和文字之間的間距 */
+}
+
+.logo {
+    display: flex;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    background-color: #000;
+    padding: 0px;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+  }
+
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 0;
+    font-size: 16px;
+    
+}
+
+header ul li a:hover {
+    text-decoration: underline; /* 滑過時加上下劃線 */
+    color: #FFDD55;
+    
+}
+
+button{
+    background-color: #FFDD55; /* 改變按鈕背景顏色 */
+    color: #FFF; /* 改變按鈕文字顏色 */
+    border: none; /* 移除邊框 */
+    border-radius: 5px; /* 圓角 */
+    padding: 10px 20px; /* 內邊距 */
+    cursor: pointer; /* 鼠標懸停時顯示手指指標 */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #FFC107; /* 懸停時的顏色 */
+}
+
+/* 輪播圖 */
+
+.hero-section {
+    
+    width: 100%;
+}
+
+.hero-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* 圓形選單 */
+
+.circular-menu {
+    background-image: url('./img/04.png');
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    padding: 50px;
+}
+
+.menu-item {
+    width: 120px; /* 固定寬度 */
+    height: 120px; /* 固定高度 */
+    border-radius: 50%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    background-color: transparent;
+    box-shadow: 0 0 20px 10px rgba(255, 0, 255, 0.5), 0 0 30px 15px rgba(0, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+
+}
+
+.menu-item:hover{
+    transform: scale(1.2); 
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* 熱門話題 */
+
+.hot-topics {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    text-align: center;
+    
+}
+
+.topic{
+    width: 250px;
+    height: 365px;
+    border: 2px solid #96AFD4; 
+    padding: 5px; /* 內邊距，讓內容與邊框之間有空間 */
+    margin: 10px; /* 外邊距，讓元素與其他元素之間有空間 */
+    background-color: rgba(236, 237, 233, 0.5);
+}
+
+.hot-topics img{
+    width: 250px;
+    height: 176px;
+}
+
+.hot-topics p{
+    text-align: left;
+}
+
+#熱門話題 h2 {
+    text-align: center;  /* 水平置中 */
+    color: #fff;         /* 可選：設置文字顏色 */
+    text-decoration: underline;
+    text-decoration-color: red;
+
+    }
+
+
+/* 最新消息/優惠訊息 */
+
+.news {
+    max-width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.news-item {
+    text-align: center;
+    width: 250px;
+    height: 365px;
+    border: 2px solid #E4A0DB; 
+    padding: 5px; /* 內邊距，讓內容與邊框之間有空間 */
+    margin: 10px; /* 外邊距，讓元素與其他元素之間有空間 */
+    text-align: left;
+    background-color: rgba(236, 237, 233, 0.5);
+    
+}
+
+.news-item img{
+    width: 250px;
+    height: 176px;
+    
+}
+
+.news-item h3{
+    text-align: center;
+}
+
+#優惠訊息 h2{
+    text-align: center;  /* 水平置中 */
+    color: #fff;         /* 可選：設置文字顏色 */
+}
+
+/* 熱門店家 */
+
+#熱門店家{
+    text-align: center; /* 文字居中 */
+    padding: 20px;
+    margin: 20px;
+}
+
+.stores {
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; /* 元素之间的间距 */
+    height: auto;
+    padding: 20px;
+}
+
+.store {
+    background-color: #9795a6;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 220px;
+    flex-shrink: 0;
+    border-radius: 5%;   
+}
+
+.store:hover {
+    transform: scale(1.05);
+}
+
+.store img {
+    max-width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0px;
+    padding: 10px;
+}
+
+.store-name {
+    padding: 10px;
+    padding-left: 0px;
+    font-size: 18px; 
+    color: #fff;
+    width: 120px;
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    
+    align-items: center; /* 水平置中 */
+    padding: 20px;
+    background: linear-gradient(to top, #000, #DADADA); /* 漸層背景 */
+    color: #FFF; /* 文字顏色 */
+    
+
+}
+
+.footer-content {
+    
+    
+    
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.footer-content img {
+    margin-right: 10px; /* 在 logo 和标题之间添加间距 */
+    text-align: center;
+}
+
+nav{
+    
+}
+
+.footer-links{
+    width: 70%;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+.footer-contact{
+    display: flex;
+    text-align: center;
+    vertical-align: middle; /* 图标和文字垂直居中对齐 */
+}
+
+.footer-contact button{
+    background-color: #9795A6; /* 改變按鈕背景顏色 */
+    color: #FFF; /* 改變按鈕文字顏色 */
+    border: none; /* 移除邊框 */
+    border-radius: 5px; /* 圓角 */
+    padding: 10px 20px; /* 內邊距 */
+    cursor: pointer; /* 鼠標懸停時顯示手指指標 */
+    font-size: 16px;
+    font-weight: bold;
+}
+.footer-contact button:hover {
+    background-color: #666478; /* 懸停時的顏色 */
+}
+
+.footer-contact input[type="email"] {
+    width: 180px;
+    padding: 10px 15px; /* 內邊距 */
+    border: 2px solid #ccc; /* 邊框顏色 */
+    border-radius: 5px; /* 圓角邊框 */
+    font-size: 16px; /* 字體大小 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+    transition: border-color 0.3s; /* 平滑邊框顏色變化 */
+}
+
+
+footer nav ul li{
+    margin: 0 15px;
+}
+
+footer nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+footer nav ul li a:hover{
+    text-decoration: underline; /* 滑過時加上下劃線 */
+    color: #FFDD55;
+}
+
+.social-icons{
+    margin-left: 50px;
+    align-items: center;
+
+}
+
+.social-icons a {
+    font-size: 24px; /* 設定大小 */
+    color: #FFF; /* 設定顏色 */
+}
+
+.social-icons a:hover {
+    opacity: 0.7; /* 懸停時改變透明度 */
+}
+
+
+
+
+

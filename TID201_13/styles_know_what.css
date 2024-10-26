@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    
+/* 對所有圖片的設定 */
+img {
+    width: 100%;
+    height: auto;
+}
+    
+/* banner圖的設定 */
+.banner{
+    max-width: 100%;
+    height: auto;
+}
+    
+/* 麵包屑導航的設定 */
+.breadcrumb {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+    
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    margin: 0 5px;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: blue;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+    
+/* 內文部分 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+    
+.newbie {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 10px;
+}
+    
+.newbie a img{
+    width: 100%;
+    height: auto;
+}
+    
+.more-articles {
+    display: flex;
+    overflow: hidden;
+    margin-top: 20px;
+}

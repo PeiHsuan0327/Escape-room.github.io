@@ -1,0 +1,482 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* 將 logo 和 nav 分開排列 */
+    align-items: center; /* 垂直居中對齊 */
+    background-color: #000;
+    color: white;
+    padding: 10px;
+}
+
+header div {
+    display: flex;
+    align-items: center; /* 圖片和標題垂直居中 */
+}
+
+header img {
+    width: 100px; /* 調整圖片大小 */
+    margin-left: 20px;
+    margin-right: 10px; /* 圖片和文字之間的間距 */
+}
+
+.logo {
+    display: flex;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    background-color: #000;
+    padding: 0px;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+  }
+
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 0;
+    font-size: 16px;
+    
+}
+
+header ul li a:hover {
+    text-decoration: underline; /* 滑過時加上下劃線 */
+    color: #FFDD55;
+    
+}
+
+button{
+    background-color: #FFDD55; /* 改變按鈕背景顏色 */
+    color: #FFF; /* 改變按鈕文字顏色 */
+    border: none; /* 移除邊框 */
+    border-radius: 5px; /* 圓角 */
+    padding: 10px 20px; /* 內邊距 */
+    cursor: pointer; /* 鼠標懸停時顯示手指指標 */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #FFC107; /* 懸停時的顏色 */
+}
+
+.banner {
+    max-width: 100%;
+    overflow: hidden; /* 防止内容溢出 */
+}
+
+.banner img{
+    width: 100%; /* 确保图片宽度适应容器 */
+    height: auto; /* 保持图片的纵横比 */
+    
+}
+
+
+/* 第一篇_什麼是密室逃脫 */
+.container1{
+    width: 70%;
+    height: 300px;
+    margin: 100px auto; /* 将框居中 */
+    background-color: #000; /* 框的背景颜色 */
+    border: 2px solid #CD51A7; /* 框的边框 */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(205, 81, 167, 0.1); /* 添加阴影效果 */
+    display: flex; /* 使用Flexbox */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between;
+    position: relative;
+}
+
+.image-section1{
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 100px;
+    position: relative;
+    
+}
+
+.image-section1 img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    position: absolute; /* 讓圖片可以進行絕對定位 */
+    z-index: 10; /* 確保圖片在文字的下方或上方，依據需求調整 */
+    border-radius: 10px; /* 如果你希望圖片的邊框也是圓角 */
+    top: -190px; /* 將圖片向上超出邊框 */
+    right: -90px; /* 將圖片向右超出邊框 */
+}
+
+.container1-text{
+    flex: 1;
+    text-align: left;
+    z-index: 5;
+}
+
+.checkmore img{
+    width: auto;
+    height: auto;
+    float: right; /* 讓圖片完全靠右 */
+}
+
+
+/* 第二篇_如何成功逃出神秘房間 */
+.container2{
+    width: 70%;
+    height: 300px;
+    margin: 100px auto; /* 将框居中 */
+    background-color: #000; /* 框的背景颜色 */
+    border: 2px solid #CD51A7; /* 框的边框 */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(205, 81, 167, 0.1); /* 添加阴影效果 */
+    display: flex; /* 使用Flexbox */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between;
+    position: relative;
+}
+
+.image-section2{
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.image-section2 img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    position: absolute; /* 讓圖片可以進行絕對定位 */
+    z-index: 10; /* 確保圖片在文字的下方或上方，依據需求調整 */
+    border-radius: 10px; /* 如果你希望圖片的邊框也是圓角 */
+    top: -190px; /* 將圖片向上超出邊框 */
+    left: -90px; /* 將圖片向右超出邊框 */
+}
+
+.container2-text{
+    flex: 1;
+    text-align: left;
+    z-index: 5;
+}
+
+.checkmore img{
+    width: 30%;
+    height: auto;
+    float: right; /* 讓圖片完全靠右 */
+}
+
+
+/* 第三篇_實境體驗分類概述 */
+.container3{
+    width: 70%;
+    height: 300px;
+    margin: 100px auto; /* 将框居中 */
+    background-color: #000; /* 框的背景颜色 */
+    border: 2px solid #CD51A7; /* 框的边框 */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(205, 81, 167, 0.1); /* 添加阴影效果 */
+    display: flex; /* 使用Flexbox */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between;
+    position: relative;
+}
+
+.image-section3{
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 100px;
+    position: relative;
+}
+
+.image-section3 img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    position: absolute; /* 讓圖片可以進行絕對定位 */
+    z-index: 10; /* 確保圖片在文字的下方或上方，依據需求調整 */
+    border-radius: 10px; /* 如果你希望圖片的邊框也是圓角 */
+    top: -190px; /* 將圖片向上超出邊框 */
+    right: -90px; /* 將圖片向右超出邊框 */
+}
+
+.container3-text{
+    flex: 1;
+    text-align: left;
+    z-index: 5;
+}
+
+.checkmore img{
+    width: 30%;
+    height: auto;
+    float: right; /* 讓圖片完全靠右 */
+}
+
+
+/* h2區 */
+.newbie{
+    width: 90%; /* 與 .container1 相同的寬度 */
+    margin: 0 auto; /* 水平居中 */
+    text-align: left;
+    padding: 20px 0;
+    border-bottom: 2px solid #CD51A7;
+    display: flex; /* 使用 Flexbox 佈局 */
+    align-items: center; /* 垂直置中 */
+    justify-content: space-between; /* 讓 h2 和按鈕分開排列 */
+}
+
+.newbie h2 {
+    text-align: left; /* 讓標題靠左對齊 */
+    margin: 0; /* 移除 h2 的 margin，讓它更靠近底線 */
+}
+
+.newbie button{
+    background-color: #ce77a0; /* 按鈕背景顏色 */
+    color: #FFF; /* 按鈕文字顏色 */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* 添加過渡效果 */
+}
+
+.newbie button:hover {
+    background-color: #CD51A7; /* 懸停時的顏色 */
+}
+
+/* 適合新手的遊戲 */
+
+.game-cards{
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    margin: 20px auto;
+    flex-wrap: wrap; /* 允許卡片在小螢幕上換行 */
+}
+
+.game-card {
+    background-color:rgb(151, 149, 166);
+    padding: 15px;
+    border-radius: 10px;
+    width: 15%;
+    text-align: left; 
+    margin: 6px;
+    transition: all 0.3s ease;
+    
+}
+
+.game-card:hover {
+    transform: scale(1.05); /* 懸停效果 */
+    background-color: #bebcca;
+}
+
+.gameimg{
+    width: 100%;
+}
+
+.game-card h3 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 靠左对齐 */
+}
+
+.game-card p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 靠左对齐 */
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.icon-right {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    float: right;
+    margin-left: 10px;
+}
+
+/* 桌面版 */
+@media (min-width: 1200px) {
+    .game-card {
+        width: 15%; /* 顯示五列 */
+    }
+}
+
+/* 平板版 (1024px - 1200px)：顯示四列 */
+@media (max-width: 1200px) and (min-width: 1024px) {
+    .game-card {
+        width: 22%; /* 顯示四列 */
+    }
+}
+
+/* 小平板版 (768px - 1024px)：顯示兩列 */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .game-card {
+        width: 45%; /* 顯示兩列 */
+    }
+}
+
+/* 手機版 (小於 768px)：顯示單列 */
+@media (max-width: 768px) {
+    .game-card {
+        width: 90%; /* 單列顯示，略微縮小寬度 */
+        margin: 10px auto; /* 居中顯示 */
+    }
+}
+
+
+
+
+/* footer */
+
+.footer {
+    padding: 20px;
+    background: linear-gradient(to top, #000, #DADADA); /* 漸層背景 */
+    color: #FFF; /* 文字顏色 */
+
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between; /* 讓左右內容分開 */
+    flex-wrap: wrap; /* 當螢幕較小時，允許換行 */
+    align-items: center; /* 垂直置中 */
+    padding: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+/* 右側連結列表 */
+.footer-links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end; /* 連結靠右 */
+    flex: 1; /* 占據剩餘空間，將其他元素推到左邊 */
+}
+
+.footer-links li {
+    margin-left: 20px;
+}
+
+.footer-links a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #FFDD55; /* 滑過時變色 */
+}
+
+/* Footer 聯絡區塊 */
+.footer-contact {
+    display: flex;
+    flex: 1;
+    justify-content: space-between; /* 讓訂閱區和社交圖標區分開 */
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* 訂閱輸入框和按鈕 */
+.footer-subscribe {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* 與社交圖標保持間距 */
+}
+
+.footer-subscribe input[type="email"] {
+    width: 200px;
+    padding: 8px;
+    margin-right: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.footer-subscribe button {
+    background-color: #9795A6;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.footer-subscribe button:hover {
+    background-color: #666478; /* 懸停時變色 */
+}
+
+/* 社交圖標 */
+.social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-icons a {
+    color: #FFF;
+    font-size: 20px;
+    margin-left: 15px; /* 圖標間距 */
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    opacity: 0.7; /* 懸停時變透明度 */
+}
+
+/* RWD 媒體查詢 */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* 小螢幕時垂直排列 */
+        align-items: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+        width: 100%; /* 讓連結居中排列 */
+        margin-top: 10px;
+    }
+    
+    .footer-contact {
+        flex-direction: column; /* 小螢幕時垂直排列 */
+        align-items: center;
+    }
+    
+    .footer-subscribe {
+        margin-right: 0; /* 移除右邊距 */
+        margin-bottom: 10px; /* 與社交圖標區保持間距 */
+    }
+}
+
