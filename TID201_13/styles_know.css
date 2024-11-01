@@ -30,13 +30,14 @@ header img {
     display: flex;
 }
 
+
 header nav ul {
     display: flex;
     justify-content: space-around;
     list-style-type: none;
     background-color: #000;
     padding: 0px;
-    margin-right: 20px;
+   
 }
 
 header nav ul li {
@@ -59,7 +60,7 @@ header ul li a:hover {
     
 }
 
-button{
+header button{
     background-color: #FFDD55; /* 改變按鈕背景顏色 */
     color: #FFF; /* 改變按鈕文字顏色 */
     border: none; /* 移除邊框 */
@@ -68,6 +69,7 @@ button{
     cursor: pointer; /* 鼠標懸停時顯示手指指標 */
     font-size: 16px;
     font-weight: bold;
+    margin-right: 80px;
 }
 
 button:hover {
@@ -316,6 +318,7 @@ button:hover {
     margin-left: 10px;
 }
 
+
 /* 桌面版 */
 @media (min-width: 1200px) {
     .game-card {
@@ -363,6 +366,8 @@ button:hover {
     flex-wrap: wrap; /* 當螢幕較小時，允許換行 */
     align-items: center; /* 垂直置中 */
     padding: 20px;
+    
+    
 }
 
 .footer-logo {
@@ -408,6 +413,7 @@ button:hover {
     justify-content: space-between; /* 讓訂閱區和社交圖標區分開 */
     align-items: center;
     margin-top: 10px;
+    
 }
 
 /* 訂閱輸入框和按鈕 */
@@ -459,13 +465,13 @@ button:hover {
 /* RWD 媒體查詢 */
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column; /* 小螢幕時垂直排列 */
+        flex-direction: column;
         align-items: center;
     }
     
     .footer-links {
         justify-content: center;
-        width: 100%; /* 讓連結居中排列 */
+        width: 100%;
         margin-top: 10px;
     }
     
@@ -478,5 +484,11 @@ button:hover {
         margin-right: 0; /* 移除右邊距 */
         margin-bottom: 10px; /* 與社交圖標區保持間距 */
     }
+}
+
+/* 聲明 */
+.declare{
+    font-size: 16px;
+    text-align: center;
 }
 

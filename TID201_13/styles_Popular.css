@@ -1,0 +1,88 @@
+
+
+.monthly-recommendation{
+    background-image: url('./img/popular_bg.png');
+    background-size: cover; /* 背景圖片覆蓋整個區域 */
+    background-position: center; /* 將圖片置中 */
+    background-repeat: no-repeat; /* 防止背景圖片重複 */
+    padding: 40px 0; /* 上下留白，確保背景圖片顯示效果 */
+    
+}
+
+.game-cards{
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-right:auto ;
+    margin-left: auto;
+    flex-wrap: wrap; /* 允許卡片在小螢幕上換行 */
+}
+
+.game-card {
+    background-color: rgba(151, 149, 166, 0.8);
+    padding: 5px;
+    border-radius: 10px;
+    width: 15%;
+    text-align: left; 
+    margin: 6px;
+    transition: all 0.3s ease;
+    
+}
+
+.game-card:hover {
+    transform: scale(1.05); /* 懸停效果 */
+    background-color: #bebcca;
+}
+
+.gameimg{
+    width: 100%;
+}
+
+h2{
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+
+.game-card h3 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 靠左对齐 */
+}
+
+.game-card p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 靠左对齐 */
+    font-weight: bold;   
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.icon-right {
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    float: right;
+    margin-left: 10px;
+}
+
+.hotitem{
+    background-image: url('./img/hotitem-bg.png');
+    background-size: cover; /* 背景圖片覆蓋整個區域 */
+    background-position: center; /* 將圖片置中 */
+    background-repeat: no-repeat; /* 防止背景圖片重複 */
+    padding: 40px 0; /* 上下留白，確保背景圖片顯示效果 */
+}
+

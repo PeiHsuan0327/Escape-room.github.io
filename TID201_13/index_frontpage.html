@@ -5,37 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>密室集結站</title>
     <link rel="stylesheet" href="styles_frontpage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/c439339ff1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+    
     <header>
+        <input type="checkbox" name="" id="menu_control">
+
         <div>
             <img src="./img/00_logo.png" alt="logo">
             <h1>密室集結站</h1>
         </div>
-        <nav>
-            <ul>
-                <li><a href="./index_know.html">認識密室逃脫</a></li>
-                <li><a href="#尋找密室">尋找密室</a></li>
-                <li><a href="#熱門推薦">熱門推薦</a></li>
-                <li><a href="#心得分享">心得分享</a></li>
-                <li><a href="#揪團遊玩">揪團遊玩</a></li>
-            </ul>
-        </nav>
-        <button type="submit">登入探索</button>
+        <div>
+            <nav>
+                <ul>
+                    <li><a href="./index_know.html">認識密室逃脫</a></li>
+                    <li><a href="#尋找密室">尋找密室</a></li>
+                    <li><a href="#熱門推薦">熱門推薦</a></li>
+                    <li><a href="#心得分享">心得分享</a></li>
+                    <li><a href="#揪團遊玩">揪團遊玩</a></li>
+                </ul>
+            </nav>
+            <button type="submit">登入探索</button>
+        </div>
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+
     </header>
-    <div class="hero-section">
-        <img src="./img/01_banner.png" alt="Egypt Escape Room Theme">
-    </div>
-    
-    <section class="circular-menu">
-          <div class="menu-item"><a href="#認識密室逃脫">認識密室逃脫</a></div>
-          <div class="menu-item"><a href="#尋找密室">尋找密室</a></div>
-          <div class="menu-item"><a href="#揪團遊玩">揪團遊玩</a></div>
-          <div class="menu-item"><a href="#熱門推薦">熱門推薦</a></div>
-          <div class="menu-item"><a href="#心得分享">心得分享</a></div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>密室大揭秘，分享你的逃脫故事</h1>
+            <p>彙集全台密室資訊，分享心得，揪團一起挑戰！</p>
+        </div>
+        <div class="hero-content">
+            <h1>探索未知密室，成為逃脫高手</h1>
+            <p>挑戰你的智慧，挑戰你的膽量，迎接未知的冒險！</p>
+        </div>
+        <div class="hero-content">
+            <h1>邀請好友，開啟你的冒險之旅</h1>
+            <p>與好友組隊，一同解謎，共同完成逃脫任務！</p>
+        </div>
+        
+        
+        <button class="carousel-control prev" onclick="prevSlide()"><i class="fa-solid fa-circle-chevron-left"></i></button>
+        <button class="carousel-control next" onclick="nextSlide()"><i class="fa-solid fa-circle-chevron-right"></i></button>
     </section>
+    
+    <div class="container">
+        <div class="circle">
+            <span><a href="index_know.html">認識密室逃脫</a></span>
+        </div>
+        <div class="circle">
+            <span><a href="index_know.html">尋找密室</a></span>
+        </div>
+        <div class="circle">
+            <span><a href="index_Experience.html">心得分享</a></span>
+        </div>
+        <div class="circle">
+            <span><a href="index_Experience.html">揪團遊玩</a></span>
+        </div>
+        <div class="circle">
+            <span><a href="index_Popular.html">熱門推薦</a></span>
+        </div>
+    </div>
 
 
     <section id="熱門話題">
@@ -74,7 +108,7 @@
             </div>
             <div class="news-item">
                 <img src="./img/10.png" alt="學生優惠">
-                <h3>密室逃脫高星學生優惠懶人包</h3>
+                <h3>密室逃脫壽星學生優惠懶人包（2024最新）</h3>
                 <P>壽星最大！2024最新最完整的密室逃脫壽星與學生優惠一次整理給你！</P>
             </div>
             <div class="news-item">
@@ -129,39 +163,82 @@
     </section>
 
    
-    <footer>
-        
-        <div class="footer-content">
-            <img src="./img/00_logo.png" alt="logo">
-            <h1>密室集結站</h1>
+    <footer class="footer">
+        <div class="logo-section">
+            <img src="./img/00_logo.png" alt="Escape Room Logo" class="logo"> <!-- LOGO圖片 -->
+            <h1>Escape room game</h1>
         </div>
-        
-        <nav>
-            <ul class="footer-links">
-                <li><a href="#認識密室逃脫">認識密室逃脫</a></li>
-                <li><a href="#尋找密室">尋找密室</a></li>
-                <li><a href="#熱門推薦">熱門推薦</a></li>
-                <li><a href="#心得分享">心得分享</a></li>
-                <li><a href="#揪團遊玩">揪團遊玩</a></li>
-            </ul>
-        </nav>
-        
-        <div class="footer-contact">
-            
-                <div>
-                    <input type="email" placeholder="輸入 Email獲得最新消息" required>
-                    <button type="submit">送出</button>
+        <div class="nav-container">
+            <nav class="nav-links">
+                <a href="./index_know.html">認識密室逃脫</a>
+                <a href="#find-room">尋找密室</a>
+                <a href="./index_Popular.html">熱門排行</a>
+                <a href="./index_Experience.html">心得分享</a>
+                <a href="#groups">揪團遊玩</a>
+            </nav>
+            <div class="bottom-section">
+                <div class="subscribe-section">
+                    <input type="email" placeholder="Your email" class="email-input">
+                    <button class="subscribe-btn">獲得最新消息</button>
                 </div>
-            
                 <div class="social-icons">
-                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://workspace.google.com/intl/zh-TW/gmail/" target="_blank" aria-label="email"><i class="fa-solid fa-envelope"></i></i></a>
+                    <a href="https://www.instagram.com" target="_blank" aria-label="instagram" class="instagram"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+                    <a href="https://workspace.google.com/intl/zh-TW/gmail/" target="_blank" aria-label="email" class="femail"><i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
                 </div>
-            
-        </div> 
-              
+            </div>
+        </div>
     </footer>
+    <script>
+        let heroSection = document.querySelector('.hero-section');
+        let heroContents = document.querySelectorAll('.hero-content');
+
+        let backgrounds = [
+            './img/01_banner.png',
+            './img/02_banner.png',
+            './img/03_banner.png'
+        ];
+        let currentIndex = 0;
+        let intervalTime = 8000; // 每張幻燈片顯示的時間 (8 秒)
+        let slideInterval; // 用於儲存 setInterval 的 ID
+
+        function showSlide(index) {
+            // 移除所有內容的 active 樣式
+            heroContents.forEach(content => content.classList.remove('active'));
+            
+            // 顯示當前的內容
+            heroContents[index].classList.add('active');
+            
+            // 更新背景圖片
+            heroSection.style.backgroundImage = `url(${backgrounds[index]})`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % heroContents.length;
+            showSlide(currentIndex);
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + heroContents.length) % heroContents.length;
+            showSlide(currentIndex);
+            resetAutoSlide();
+        }
+
+        // 自動切換
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, intervalTime);
+        }
+
+        // 重置自動切換
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            startAutoSlide();
+        }
+
+        // 初始化
+        showSlide(currentIndex);
+        startAutoSlide();
+    </script>
 </body>
 </html>

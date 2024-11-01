@@ -1,0 +1,100 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.banner img{
+  max-width: 100%;
+}
+
+/* 文章區 */
+.post-container{
+  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* 控制 header 和 pagination 間的距離 */
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.post{
+  width: 700px;
+  height: 200px;
+  background-color: #BFBEC5;
+  padding: 20px 30px;
+  border-radius: 20px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-container .post-tags{
+  font-size: 24px;
+  font-weight: bold;
+
+}
+
+h3 {
+  line-height: 30px;
+  
+}
+
+.post-tags {
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.post-meta{
+  margin: 20px 0 0 0;
+}
+
+.post-meta span { 
+  margin-right: 30px;
+}
+
+
+
+/* 頁碼區 */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.pagination a {
+  color: #333;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination .active {
+  background-color: #b0c7ff;
+  color: #333;
+  font-weight: bold;
+}
+
+.pagination .prev, .pagination .next {
+  padding: 6px 10px;
+  border-radius: 4px;
+  color: #333;
+}
+
+.pagination .prev:hover, .pagination .next:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination span {
+  color: #888;
+}
