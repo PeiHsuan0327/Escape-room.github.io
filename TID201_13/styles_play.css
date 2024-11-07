@@ -241,7 +241,7 @@ body {
 
 /* 頁面橫幅區域 */
 .banner {
-    max-width: 100%;
+    width: 100vw;
     overflow: hidden;
 }
 
