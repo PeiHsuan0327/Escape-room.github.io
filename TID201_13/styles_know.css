@@ -3,27 +3,29 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000;
-    color: #fff;
+    color: #f0f0f0;
 }
 
+/* header */
 header {
     display: flex;
-    justify-content: space-between; /* 將 logo 和 nav 分開排列 */
-    align-items: center; /* 垂直居中對齊 */
+    justify-content: space-between;
+    align-items: center; 
     background-color: #000;
     color: white;
     padding: 10px;
+    position: relative;
 }
 
 header div {
     display: flex;
-    align-items: center; /* 圖片和標題垂直居中 */
+    align-items: center; 
 }
 
 header img {
-    width: 100px; /* 調整圖片大小 */
+    width: 100px;
     margin-left: 20px;
-    margin-right: 10px; /* 圖片和文字之間的間距 */
+    margin-right: 10px;
 }
 
 .logo {
@@ -35,9 +37,9 @@ header nav ul {
     display: flex;
     justify-content: space-around;
     list-style-type: none;
-    background-color: #000;
+    background-color: transparent;
     padding: 0px;
-   
+    margin-right: 20px;
 }
 
 header nav ul li {
@@ -55,35 +57,192 @@ header ul li a {
 }
 
 header ul li a:hover {
-    text-decoration: underline; /* 滑過時加上下劃線 */
+    text-decoration: underline;
     color: #FFDD55;
     
 }
 
-header button{
-    background-color: #FFDD55; /* 改變按鈕背景顏色 */
-    color: #FFF; /* 改變按鈕文字顏色 */
-    border: none; /* 移除邊框 */
-    border-radius: 5px; /* 圓角 */
-    padding: 10px 20px; /* 內邊距 */
-    cursor: pointer; /* 鼠標懸停時顯示手指指標 */
+button{
+    background-color: #FFDD55;
+    color: #FFF;
+    border: none; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    margin-right: 80px;
 }
 
-button:hover {
-    background-color: #FFC107; /* 懸停時的顏色 */
+header button:hover {
+    background-color: #FFC107;
 }
+
+/* 漢堡選單 */
+#menu_control {
+    display: none;
+}
+
+.menu_btn {
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #9795a6;
+    border-radius: 5px;
+    position: relative;
+}
+
+.menu_btn span {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    display: block;
+    overflow: hidden;
+}
+
+.menu_btn::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    left: 2px;
+    width: 36px;
+    background-color: #FFDD55;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    box-shadow: 0px 8px 0px #FFDD55, 0px -8px 0px #FFDD55;
+}
+
+@media screen and (max-width: 768px) {
+    .menu_btn {
+        display: block;
+    }
+
+    nav.nav-links {
+        display: none;
+    }
+
+    #menu_control:checked ~ .menu-wrapper nav {
+        display: block;
+        position: absolute;
+        top: 105px;
+        left: 0;
+        width: 60%;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 0;
+        background-color: transparent;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        font-size: 18px;
+        color: #fff;
+        border-bottom: 1px solid #444;
+        background-color: transparent;
+    }
+
+    nav ul li a:hover {
+        color: #FFDD55;
+    }
+}
+
+
+/* 模態框:會員登入、註冊 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab button.active {
+    background-color: #FFDD55;
+    color: #fff;
+}
+
+.tabcontent {
+    display: none;
+    color:#000
+}
+
+.tabcontent form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabcontent form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.tabcontent form button {
+    padding: 10px;
+    background-color: #FFDD55;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
 
 .banner {
     max-width: 100%;
-    overflow: hidden; /* 防止内容溢出 */
+    overflow: hidden;
 }
 
 .banner img{
-    width: 100%; /* 确保图片宽度适应容器 */
-    height: auto; /* 保持图片的纵横比 */
+    width: 100%;
+    height: auto; 
     
 }
 
@@ -92,13 +251,13 @@ button:hover {
 .container1{
     width: 70%;
     height: 300px;
-    margin: 100px auto; /* 将框居中 */
-    background-color: #000; /* 框的背景颜色 */
-    border: 2px solid #CD51A7; /* 框的边框 */
+    margin: 120px auto;
+    background-color: #000;
+    border: 2px solid #CD51A7;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(205, 81, 167, 0.1); /* 添加阴影效果 */
-    display: flex; /* 使用Flexbox */
-    align-items: center; /* 垂直居中 */
+    box-shadow: 0 4px 8px rgba(205, 81, 167, 0.1);
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     position: relative;
 }
@@ -115,11 +274,11 @@ button:hover {
     width: 90%;
     height: auto;
     object-fit: cover;
-    position: absolute; /* 讓圖片可以進行絕對定位 */
-    z-index: 10; /* 確保圖片在文字的下方或上方，依據需求調整 */
-    border-radius: 10px; /* 如果你希望圖片的邊框也是圓角 */
-    top: -190px; /* 將圖片向上超出邊框 */
-    right: -90px; /* 將圖片向右超出邊框 */
+    position: absolute; 
+    z-index: 10;
+    border-radius: 10px;
+    top: -190px;
+    right: -90px;
 }
 
 .container1-text{
@@ -131,7 +290,7 @@ button:hover {
 .checkmore img{
     width: auto;
     height: auto;
-    float: right; /* 讓圖片完全靠右 */
+    float: right;
 }
 
 
@@ -139,13 +298,13 @@ button:hover {
 .container2{
     width: 70%;
     height: 300px;
-    margin: 100px auto; /* 将框居中 */
-    background-color: #000; /* 框的背景颜色 */
-    border: 2px solid #CD51A7; /* 框的边框 */
+    margin: 120px auto;
+    background-color: #000;
+    border: 2px solid #CD51A7;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(205, 81, 167, 0.1); /* 添加阴影效果 */
-    display: flex; /* 使用Flexbox */
-    align-items: center; /* 垂直居中 */
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     position: relative;
 }
@@ -161,11 +320,11 @@ button:hover {
     width: 90%;
     height: auto;
     object-fit: cover;
-    position: absolute; /* 讓圖片可以進行絕對定位 */
-    z-index: 10; /* 確保圖片在文字的下方或上方，依據需求調整 */
-    border-radius: 10px; /* 如果你希望圖片的邊框也是圓角 */
-    top: -190px; /* 將圖片向上超出邊框 */
-    left: -90px; /* 將圖片向右超出邊框 */
+    position: absolute;
+    z-index: 10;
+    border-radius: 10px;
+    top: -190px;
+    left: -90px;
 }
 
 .container2-text{
@@ -185,13 +344,13 @@ button:hover {
 .container3{
     width: 70%;
     height: 300px;
-    margin: 100px auto; /* 将框居中 */
-    background-color: #000; /* 框的背景颜色 */
-    border: 2px solid #CD51A7; /* 框的边框 */
+    margin: 120px auto;
+    background-color: #000;
+    border: 2px solid #CD51A7;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(205, 81, 167, 0.1); /* 添加阴影效果 */
-    display: flex; /* 使用Flexbox */
-    align-items: center; /* 垂直居中 */
+    box-shadow: 0 4px 8px rgba(205, 81, 167, 0.1);
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     position: relative;
 }
@@ -207,11 +366,11 @@ button:hover {
     width: 90%;
     height: auto;
     object-fit: cover;
-    position: absolute; /* 讓圖片可以進行絕對定位 */
-    z-index: 10; /* 確保圖片在文字的下方或上方，依據需求調整 */
-    border-radius: 10px; /* 如果你希望圖片的邊框也是圓角 */
-    top: -190px; /* 將圖片向上超出邊框 */
-    right: -90px; /* 將圖片向右超出邊框 */
+    position: absolute;
+    z-index: 10;
+    border-radius: 10px;
+    top: -190px;
+    right: -90px;
 }
 
 .container3-text{
@@ -223,52 +382,98 @@ button:hover {
 .checkmore img{
     width: 30%;
     height: auto;
-    float: right; /* 讓圖片完全靠右 */
+    float: right;
 }
 
+/* 淡入效果 */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+@media (max-width: 768px) {
+
+    .container1, .container2, .container3 {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .container1 img, .container2 img, .container3 img {
+        position: static;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .container1-text, .container2-text, .container3-text {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .image-section1,.image-section2,.image-section3 {
+        margin: 0;
+    }
+
+}
 
 /* h2區 */
 .newbie{
-    width: 90%; /* 與 .container1 相同的寬度 */
-    margin: 0 auto; /* 水平居中 */
+    width: 90%;
+    margin: 0 auto;
     text-align: left;
     padding: 20px 0;
     border-bottom: 2px solid #CD51A7;
-    display: flex; /* 使用 Flexbox 佈局 */
-    align-items: center; /* 垂直置中 */
-    justify-content: space-between; /* 讓 h2 和按鈕分開排列 */
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
 }
 
 .newbie h2 {
-    text-align: left; /* 讓標題靠左對齊 */
-    margin: 0; /* 移除 h2 的 margin，讓它更靠近底線 */
+    text-align: left;
+    margin: 0;
 }
 
 .newbie button{
-    background-color: #ce77a0; /* 按鈕背景顏色 */
-    color: #FFF; /* 按鈕文字顏色 */
+    background-color: #ce77a0;
+    color: #FFF;
     border: none;
     border-radius: 5px;
     padding: 8px 16px;
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    transition: background-color 0.3s ease; /* 添加過渡效果 */
+    transition: background-color 0.3s ease;
 }
 
 .newbie button:hover {
-    background-color: #CD51A7; /* 懸停時的顏色 */
+    background-color: #CD51A7;
 }
 
 /* 適合新手的遊戲 */
-
 .game-cards{
     width: 100%;
     display: flex;
-    justify-content: center; /* 水平置中 */
-    align-items: center; /* 垂直置中 */
+    justify-content: center;
+    align-items: center;
     margin: 20px auto;
-    flex-wrap: wrap; /* 允許卡片在小螢幕上換行 */
+    flex-wrap: wrap;
 }
 
 .game-card {
@@ -279,11 +484,11 @@ button:hover {
     text-align: left; 
     margin: 6px;
     transition: all 0.3s ease;
-    
+    cursor: pointer;
 }
 
 .game-card:hover {
-    transform: scale(1.05); /* 懸停效果 */
+    transform: scale(1.05);
     background-color: #bebcca;
 }
 
@@ -294,13 +499,13 @@ button:hover {
 .game-card h3 {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* 靠左对齐 */
+    justify-content: flex-start;
 }
 
 .game-card p {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* 靠左对齐 */
+    justify-content: flex-start;
 }
 
 .icon {
@@ -319,176 +524,173 @@ button:hover {
 }
 
 
-/* 桌面版 */
-@media (min-width: 1200px) {
-    .game-card {
-        width: 15%; /* 顯示五列 */
-    }
-}
-
-/* 平板版 (1024px - 1200px)：顯示四列 */
-@media (max-width: 1200px) and (min-width: 1024px) {
-    .game-card {
-        width: 22%; /* 顯示四列 */
-    }
-}
-
-/* 小平板版 (768px - 1024px)：顯示兩列 */
 @media (max-width: 1024px) and (min-width: 768px) {
     .game-card {
-        width: 45%; /* 顯示兩列 */
+        width: 22%;
     }
 }
 
-/* 手機版 (小於 768px)：顯示單列 */
 @media (max-width: 768px) {
     .game-card {
-        width: 90%; /* 單列顯示，略微縮小寬度 */
-        margin: 10px auto; /* 居中顯示 */
+        width: 60%;
+        margin: 10px auto;
     }
 }
-
 
 
 
 /* footer */
 
 .footer {
-    padding: 20px;
-    background: linear-gradient(to top, #000, #DADADA); /* 漸層背景 */
-    color: #FFF; /* 文字顏色 */
-
-}
-
-.footer-container{
     display: flex;
-    justify-content: space-between; /* 讓左右內容分開 */
-    flex-wrap: wrap; /* 當螢幕較小時，允許換行 */
-    align-items: center; /* 垂直置中 */
-    padding: 20px;
-    
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 60px;
+    background: linear-gradient(to bottom, #333, #000);
+    color: #fff;
+    gap: 300px;
     
 }
 
-.footer-logo {
+.logo-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     text-align: center;
+    gap: 5px; 
 }
 
-.footer-logo img {
+.logo {
     width: 100px;
-    margin-bottom: 10px;
+    height: auto;
 }
 
-/* 右側連結列表 */
+.logo-section h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  
+}
+
 .footer-links {
     display: flex;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    justify-content: flex-end; /* 連結靠右 */
-    flex: 1; /* 占據剩餘空間，將其他元素推到左邊 */
-}
-
-.footer-links li {
-    margin-left: 20px;
+    gap: 60px;
+    
 }
 
 .footer-links a {
-    color: #FFF;
+    color: #fff;
     text-decoration: none;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .footer-links a:hover {
-    color: #FFDD55; /* 滑過時變色 */
+    color: #FFDD55;
 }
 
-/* Footer 聯絡區塊 */
-.footer-contact {
-    display: flex;
-    flex: 1;
-    justify-content: space-between; /* 讓訂閱區和社交圖標區分開 */
-    align-items: center;
-    margin-top: 10px;
-    
-}
-
-/* 訂閱輸入框和按鈕 */
-.footer-subscribe {
+.bottom-section {
     display: flex;
     align-items: center;
-    margin-right: 20px; /* 與社交圖標保持間距 */
+    gap: 160px;
 }
 
-.footer-subscribe input[type="email"] {
-    width: 200px;
+.subscribe-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-input {
     padding: 8px;
-    margin-right: 5px;
-    border: 2px solid #ccc;
     border-radius: 5px;
-}
-
-.footer-subscribe button {
-    background-color: #9795A6;
-    color: #FFF;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 16px;
-    cursor: pointer;
+    border: 1px solid #ddd;
     font-size: 14px;
 }
 
-.footer-subscribe button:hover {
-    background-color: #666478; /* 懸停時變色 */
+.subscribe-btn {
+    padding: 8px 16px;
+    background-color: #385EAD;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
 }
 
-/* 社交圖標 */
+.subscribe-btn:hover {
+    background-color: #0056b3;
+}
+
 .social-icons {
     display: flex;
-    align-items: center;
+    gap: 10px;
+    font-size: 30px;
+    transition: all 0.3s ease; 
 }
 
-.social-icons a {
-    color: #FFF;
-    font-size: 20px;
-    margin-left: 15px; /* 圖標間距 */
-    text-decoration: none;
+.social-icons a:hover{
+    transform: scale(1.1) rotate(10deg); 
 }
 
-.social-icons a:hover {
-    opacity: 0.7; /* 懸停時變透明度 */
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .footer{
+        gap: 100px;
+    }
+    .footer-links{
+        gap: 25px;
+    }
+    .bottom-section{
+        gap: 30px;
+    }
 }
 
-/* RWD 媒體查詢 */
-@media (max-width: 768px) {
-    .footer-container {
+@media screen and (max-width: 768px) {
+    
+    .footer {
         flex-direction: column;
         align-items: center;
+        gap: 40px;
+        padding: 20px;
     }
-    
-    .footer-links {
-        justify-content: center;
-        width: 100%;
-        margin-top: 10px;
+    .logo-section {
+        gap: 10px;
     }
-    
-    .footer-contact {
-        flex-direction: column; /* 小螢幕時垂直排列 */
+    .nav-container {
         align-items: center;
+        gap: 20px;
     }
-    
-    .footer-subscribe {
-        margin-right: 0; /* 移除右邊距 */
-        margin-bottom: 10px; /* 與社交圖標區保持間距 */
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .bottom-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .subscribe-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .social-icons {
+        font-size: 26px;
+        gap: 15px;
     }
 }
 
-/* 聲明 */
-.declare{
-    font-size: 16px;
+.TibaMe{
     text-align: center;
 }
+
+
+
 

@@ -3,20 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles_know_how.css">
+    <title>如何成功逃出神秘房間</title>
+    <link rel="stylesheet" href="styles_know-2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="banner">
-        <img src="./img/how01.png" alt="">
+    
+    <header>
+        <input type="checkbox" id="menu_control">
+        <div>
+            <a href="./index_frontpage.html"><img src="./img/00_logo.png" alt="logo"></a>
+            <h1>密室集結站</h1>
+        </div>
+        <div class="menu-wrapper">
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="./index_know.html">認識密室逃脫</a></li>
+                    <li><a href="./index_Popular.html">熱門推薦</a></li>
+                    <li><a href="./index_find.html">尋找密室</a></li>
+                    <li><a href="./index_Experience.html">心得分享</a></li>
+                    <li><a href="./index_play.html">揪團遊玩</a></li>
+                </ul>
+            </nav>
+            <button type="button" onclick="openModal()">登入探索</button>
+        </div>
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+    </header>
+    
+    <!-- 會員登入/註冊 -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+          <div class="tab">
+              <button class="tablinks active" onclick="openTab(event, 'login')">登入</button>
+              <button class="tablinks" onclick="openTab(event, 'register')">註冊</button>
+          </div>
+          <div id="login" class="tabcontent" style="display: block;">
+              <h2>會員登入</h2>
+              <form>
+                  <label for="login-email">電子郵件</label>
+                  <input type="email" id="login-email" required>
+                  <label for="login-password">密碼</label>
+                  <input type="password" id="login-password" required>
+                  <button type="submit">登入</button>
+              </form>
+          </div>
+          <div id="register" class="tabcontent">
+              <h2>會員註冊</h2>
+              <form>
+                  <label for="register-nickname">暱稱</label>
+                  <input type="text" id="register-nickname" required>
+                  <label for="register-email">電子郵件</label>
+                  <input type="email" id="register-email" required>
+                  <label for="register-password">密碼</label>
+                  <input type="password" id="register-password" required>
+                  <button type="submit">註冊</button>
+              </form>
+          </div>
+      </div>
     </div>
+    
+    <div class="banner">
+        <img src="./img/howbanner.gif" alt="">
+    </div>
+   
+    <!-- 麵包屑導航 -->
     <nav aria-label="breadcrumb">
         <ul class="breadcrumb">
-         <li class="breadcrumb-item"><a href="homepage.html">首頁</a></li>
-         <li class="breadcrumb-item"><a href="topics.html">認識密室逃脫</a></li>
-         <li class="breadcrumb-item active" aria-current="page">如何成功逃出神秘房間</li>
+            <li class="breadcrumb-item"><a href="homepage.html">🏠 首頁</a></li>
+            <li class="breadcrumb-item"><a href="topics.html">🔍 認識密室逃脫</a></li>
+            <li class="breadcrumb-item active" aria-current="page">如何成功逃出神秘房間</li>
         </ul>
     </nav>
+
     <div class="container">
         <h1>
             如何成功逃出神秘房間
@@ -51,8 +112,11 @@
     </div>
     
     <section class="more-articles">
-        <button class="arrow left-arrow">&lt;</button>
+        <button class="arrow left-arrow" onclick="scrollLeftArticle()">
+            <i class="fa-solid fa-circle-chevron-right fa-flip-horizontal" style="color: #adafb3;"></i>
+        </button>
 
+    <div class="article-list">
         <div class="article-card">
             <a href="https://escape.bar/post/types-of-reality-games">
                 <img src="img/how03.png" alt="實境體驗分類概述">
@@ -74,11 +138,113 @@
             <p>25 Jun 2024</p>
         </div>
 
-        <button class="arrow right-arrow">&gt;</button>
+        <div class="article-card">
+            <a href="https://escape.bar/post/what-is-real-escape-games">
+                <img src="img/kind04.png" alt="什麼是密室逃脫？">
+            </a>
+            <p>22 Jun 2024</p>
+        </div>
+
+        <div class="article-card">
+            <a href="https://escape.bar/post/western-style-escape-room-games">
+                <img src="img/how05.png" alt="9款西洋風密室逃脫推薦">
+            </a>
+            <p>25 Jun 2023</p>
+        </div>
+    </div>
+
+        <button class="arrow right-arrow" onclick="scrollRightArticle()">
+            <i class="fa-solid fa-circle-chevron-right" style="color: #adafb3;"></i>
+        </button>
     </section>
 
+    <button id="backToTopBtn" title="回到頂部"><img src="./img/go top.png" alt="Go to top"></button>
+    
+    <footer class="footer">
+        <div class="logo-section">
+            <img src="./img/00_logo.png" alt="Escape Room Logo" class="logo"> <!-- LOGO圖片 -->
+            <h1>Escape room game</h1>
+        </div>
+        <div class="nav-container">
+            <nav class="footer-links">
+                <a href="./index_know.html">認識密室逃脫</a>
+                <a href="./index_find.html">尋找密室</a>
+                <a href="./index_Popular.html">熱門排行</a>
+                <a href="./index_Experience.html">心得分享</a>
+                <a href="#groups">揪團遊玩</a>
+            </nav>
+            <div class="bottom-section">
+                <div class="subscribe-section">
+                    <input type="email" placeholder="Your email" class="email-input">
+                    <button class="subscribe-btn">獲得最新消息</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank" aria-label="instagram" class="instagram"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+                    <a href="https://workspace.google.com/intl/zh-TW/gmail/" target="_blank" aria-label="email" class="femail"><i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="TibaMe">本網站為緯育TibaMe【TID201】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</div>
+    
+    <script>
+        // 會員登入/註冊
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
 
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
 
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }    
+        
+        // go top
+        window.onscroll = function() {
+            const backToTopBtn = document.getElementById("backToTopBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+    
+        document.getElementById("backToTopBtn").onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    
+        // 更多文章
+        const scrollAmount = 320;
+    
+        function scrollLeftArticle() {
+            const container = document.querySelector('.article-list');
+            container.scrollLeft -= scrollAmount;
+        }
+    
+        function scrollRightArticle() {
+            const container = document.querySelector('.article-list');
+            container.scrollLeft += scrollAmount;
+        }
+    </script>
 
 
 

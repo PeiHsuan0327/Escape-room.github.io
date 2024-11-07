@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,10 +10,6 @@ body {
     color: #fff;
 }
 
-.header, .footer, .container, .hero-section, .hot-topics, .news, .stores {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 header {
     display: flex;
@@ -82,11 +82,11 @@ header button:hover {
 }
 
 /* 漢堡選單 */
-#menu_control{
+#menu_control {
     display: none;
 }
 
-.menu_btn{
+.menu_btn {
     display: none;
     cursor: pointer;
     width: 40px;
@@ -96,7 +96,7 @@ header button:hover {
     position: relative;
 }
 
-.menu_btn span{
+.menu_btn span {
     opacity: 0;
     width: 1px;
     height: 1px;
@@ -104,7 +104,7 @@ header button:hover {
     overflow: hidden;
 }
 
-.menu_btn::before{
+.menu_btn::before {
     content: '';
     position: absolute;
     height: 2px;
@@ -114,19 +114,19 @@ header button:hover {
     top: 0;
     bottom: 0;
     margin: auto;
-    box-shadow: 0px 8px 0px #FFDD55,
-                0px -8px 0px #FFDD55;
+    box-shadow: 0px 8px 0px #FFDD55, 0px -8px 0px #FFDD55;
 }
 
-
-@media screen and (max-width: 768px){
-    nav {
-        display: none;
-    }
+@media screen and (max-width: 768px) {
     .menu_btn {
         display: block;
     }
-    #menu_control:checked ~ nav {
+
+    nav.nav-links {
+        display: none;
+    }
+
+    #menu_control:checked ~ .menu-wrapper nav {
         display: block;
         position: absolute;
         top: 105px;
@@ -134,15 +134,17 @@ header button:hover {
         width: 60%;
         background-color: rgba(0, 0, 0, 0.8);
         padding: 10px;
+        z-index: 1000;
     }
+
     nav ul {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
         margin: 0;
         background-color: transparent;
-        
     }
+
     nav ul li a {
         padding: 10px 20px;
         font-size: 18px;
@@ -150,12 +152,89 @@ header button:hover {
         border-bottom: 1px solid #444;
         background-color: transparent;
     }
+
     nav ul li a:hover {
         color: #FFDD55;
     }
-
 }
 
+
+/* 模態框:會員登入、註冊 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab button.active {
+    background-color: #FFDD55;
+    color: #fff;
+}
+
+.tabcontent {
+    display: none;
+    color:#000
+}
+
+.tabcontent form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabcontent form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.tabcontent form button {
+    padding: 10px;
+    background-color: #FFDD55;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
 /* 輪播圖 */
@@ -228,26 +307,7 @@ header button:hover {
 
 /* RWD 設計 */
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .hero-section {
-        height: 60vh;
-        padding: 15px;
-    }
-
-    .hero-content {
-        max-width: 600px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1.1rem;
-    }
-}
-
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .hero-section {
         height: 50vh;
         padding: 10px;
@@ -284,7 +344,6 @@ header button:hover {
     background-repeat: no-repeat;
     padding: 20px;
     min-height: 60vh;
-    
 }
 
 .circle {
@@ -355,27 +414,7 @@ header button:hover {
 }
 
 
-/* 平板 RWD 設計 (768px - 1024px) */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .container {
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .circle {
-        width: 120px;
-        height: 120px;
-        font-size: 18px;
-    }
-
-    .circle:nth-child(odd),
-    .circle:nth-child(even) {
-        margin-top: 60px;
-        margin-bottom: 60px;
-    }
-}
-
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .container {
         display: flex;
         align-items: center;
@@ -590,7 +629,8 @@ font-size: 28px;
     display: flex;
     align-items: center;
     padding: 5px;
-    width: 220px;
+    width: 250px;
+    height: 100px;
     flex-shrink: 0;
     border-radius: 10%;
     cursor: pointer;
@@ -604,8 +644,8 @@ font-size: 28px;
 }
 
 .store img {
-    max-width: 60px;
-    height: 60px;
+    max-width: 80px;
+    height: 80px;
     border-radius: 50%;
     margin: 0px;
     padding: 10px;
@@ -614,9 +654,10 @@ font-size: 28px;
 .store-name {
     padding: 10px;
     padding-left: 0px;
-    font-size: 18px; 
+    font-size: 20px; 
     color: #fff;
-    width: 120px;
+    width: 100%;
+    font-weight: bold;
 }
 
 
@@ -659,20 +700,20 @@ font-size: 28px;
   
 }
 
-.nav-links {
+.footer-links {
     display: flex;
     gap: 60px;
     
 }
 
-.nav-links a {
+.footer-links a {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
 }
 
-.nav-links a:hover {
+.footer-links a:hover {
     color: #FFDD55;
 }
 
@@ -721,17 +762,6 @@ font-size: 28px;
     transform: scale(1.1) rotate(10deg); 
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px){
-    .footer{
-        gap: 100px;
-    }
-    .nav-links{
-        gap: 25px;
-    }
-    .bottom-section{
-        gap: 30px;
-    }
-}
 
 @media screen and (max-width: 768px) {
     
@@ -741,40 +771,33 @@ font-size: 28px;
         gap: 40px;
         padding: 20px;
     }
-
-    /* 調整 logo-section 和 nav-container 間距 */
     .logo-section {
         gap: 10px;
     }
-
     .nav-container {
         align-items: center;
         gap: 20px;
     }
-
-    /* 調整 nav-links 排列方式和間距 */
-    .nav-links {
+    .footer-links {
         flex-direction: column;
         align-items: center;
         gap: 15px;
     }
-
-    /* 調整 bottom-section 佈局 */
     .bottom-section {
         flex-direction: column;
         gap: 20px;
     }
-
-    /* 調整 subscribe-section 的間距 */
     .subscribe-section {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
-
-    /* 調整社交圖示的大小 */
     .social-icons {
         font-size: 26px;
         gap: 15px;
     }
+}
+
+.TibaMe{
+    text-align: center;
 }

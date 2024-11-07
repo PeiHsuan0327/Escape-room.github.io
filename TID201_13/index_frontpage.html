@@ -10,29 +10,60 @@
 <body>
     
     <header>
-        <input type="checkbox" name="" id="menu_control">
-
+        <input type="checkbox" id="menu_control">
         <div>
-            <img src="./img/00_logo.png" alt="logo">
+            <a href="./index_frontpage.html"><img src="./img/00_logo.png" alt="logo"></a>
             <h1>密室集結站</h1>
         </div>
-        <div>
-            <nav>
+        <div class="menu-wrapper">
+            <nav class="nav-links">
                 <ul>
                     <li><a href="./index_know.html">認識密室逃脫</a></li>
-                    <li><a href="#尋找密室">尋找密室</a></li>
-                    <li><a href="#熱門推薦">熱門推薦</a></li>
-                    <li><a href="#心得分享">心得分享</a></li>
-                    <li><a href="#揪團遊玩">揪團遊玩</a></li>
+                    <li><a href="./index_Popular.html">熱門推薦</a></li>
+                    <li><a href="./index_find.html">尋找密室</a></li>
+                    <li><a href="./index_Experience.html">心得分享</a></li>
+                    <li><a href="./index_play.html">揪團遊玩</a></li>
                 </ul>
             </nav>
-            <button type="submit">登入探索</button>
+            <button type="button" onclick="openModal()">登入探索</button>
         </div>
         <label for="menu_control" class="menu_btn">
             <span>選單</span>
         </label>
-
     </header>
+
+    <!-- 會員登入/註冊 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'login')">登入</button>
+                <button class="tablinks" onclick="openTab(event, 'register')">註冊</button>
+            </div>
+            <div id="login" class="tabcontent" style="display: block;">
+                <h2>會員登入</h2>
+                <form>
+                    <label for="login-email">電子郵件</label>
+                    <input type="email" id="login-email" required>
+                    <label for="login-password">密碼</label>
+                    <input type="password" id="login-password" required>
+                    <button type="submit">登入</button>
+                </form>
+            </div>
+            <div id="register" class="tabcontent">
+                <h2>會員註冊</h2>
+                <form>
+                    <label for="register-nickname">暱稱</label>
+                    <input type="text" id="register-nickname" required>
+                    <label for="register-email">電子郵件</label>
+                    <input type="email" id="register-email" required>
+                    <label for="register-password">密碼</label>
+                    <input type="password" id="register-password" required>
+                    <button type="submit">註冊</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <section class="hero-section">
         <div class="hero-content">
@@ -169,12 +200,12 @@
             <h1>Escape room game</h1>
         </div>
         <div class="nav-container">
-            <nav class="nav-links">
+            <nav class="footer-links">
                 <a href="./index_know.html">認識密室逃脫</a>
-                <a href="#find-room">尋找密室</a>
+                <a href="./index_find.html">尋找密室</a>
                 <a href="./index_Popular.html">熱門排行</a>
                 <a href="./index_Experience.html">心得分享</a>
-                <a href="#groups">揪團遊玩</a>
+                <a href="./index_play.html">揪團遊玩</a>
             </nav>
             <div class="bottom-section">
                 <div class="subscribe-section">
@@ -189,6 +220,8 @@
             </div>
         </div>
     </footer>
+    <div class="TibaMe">本網站為緯育TibaMe【TID201】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</div>
+    
     <script>
         let heroSection = document.querySelector('.hero-section');
         let heroContents = document.querySelectorAll('.hero-content');
@@ -199,17 +232,15 @@
             './img/03_banner.png'
         ];
         let currentIndex = 0;
-        let intervalTime = 8000; // 每張幻燈片顯示的時間 (8 秒)
-        let slideInterval; // 用於儲存 setInterval 的 ID
+        let intervalTime = 8000;
+        let slideInterval;
 
         function showSlide(index) {
-            // 移除所有內容的 active 樣式
+
             heroContents.forEach(content => content.classList.remove('active'));
             
-            // 顯示當前的內容
             heroContents[index].classList.add('active');
             
-            // 更新背景圖片
             heroSection.style.backgroundImage = `url(${backgrounds[index]})`;
         }
 
@@ -225,20 +256,47 @@
             resetAutoSlide();
         }
 
-        // 自動切換
         function startAutoSlide() {
             slideInterval = setInterval(nextSlide, intervalTime);
         }
 
-        // 重置自動切換
         function resetAutoSlide() {
             clearInterval(slideInterval);
             startAutoSlide();
         }
 
-        // 初始化
         showSlide(currentIndex);
         startAutoSlide();
+
+
+        // 會員登入/註冊
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
     </script>
 </body>
 </html>

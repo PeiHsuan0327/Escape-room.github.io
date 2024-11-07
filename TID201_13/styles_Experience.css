@@ -4,31 +4,385 @@
   box-sizing: border-box;
 }
 
-.banner img{
-  max-width: 100%;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f5;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('./img/experience_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  background-color: #000;
+  color: white;
+  padding: 10px;
+  position: relative;
+}
+
+header div {
+  display: flex;
+  align-items: center; 
+}
+
+header img {
+  width: 100px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.logo {
+  display: flex;
+}
+
+
+header nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  background-color: transparent;
+  padding: 0px;
+  margin-right: 20px;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  padding: 10px 0;
+  font-size: 16px;
+  
+}
+
+header ul li a:hover {
+  text-decoration: underline;
+  color: #FFDD55;
+  
+}
+
+button{
+  background-color: #FFDD55;
+  color: #FFF;
+  border: none; 
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+header button:hover {
+  background-color: #FFC107;
+}
+
+/* 漢堡選單 */
+#menu_control {
+  display: none;
+}
+
+.menu_btn {
+  display: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: #9795a6;
+  border-radius: 5px;
+  position: relative;
+}
+
+.menu_btn span {
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  display: block;
+  overflow: hidden;
+}
+
+.menu_btn::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 2px;
+  width: 36px;
+  background-color: #FFDD55;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 0px 8px 0px #FFDD55, 0px -8px 0px #FFDD55;
+}
+
+@media screen and (max-width: 768px) {
+  .menu_btn {
+      display: block;
+  }
+
+  nav.nav-links {
+      display: none;
+  }
+
+  #menu_control:checked ~ .menu-wrapper nav {
+      display: block;
+      position: absolute;
+      top: 105px;
+      left: 0;
+      width: 60%;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      z-index: 1000;
+  }
+
+  nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 0;
+      background-color: transparent;
+  }
+
+  nav ul li a {
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      border-bottom: 1px solid #444;
+      background-color: transparent;
+  }
+
+  nav ul li a:hover {
+      color: #FFDD55;
+  }
+}
+
+
+/* 模態框:會員登入、註冊 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab button {
+  background-color: #ddd;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tab button.active {
+  background-color: #FFDD55;
+  color: #fff;
+}
+
+.tabcontent {
+  display: none;
+  color:#000
+}
+
+.tabcontent form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabcontent form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.tabcontent form button {
+  padding: 10px;
+  background-color: #FFDD55;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.container{
+  display: flex;
+}
+
+.sidebar {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  border-radius: 8px;
+  width: 250px;
+  height: 350px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+  transition: color 0.2s;
+  color: #fff;
+}
+
+.menu a:hover {
+  color: #FFDD55;
+}
+
+/* 搜尋區 */
+
+.filter-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 20px;
+  gap: 50px;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+}
+
+.filter {
+  padding: 8px 16px;
+  border: 1px solid #FFF;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 8px;
+  color: #FFF;
+}
+
+.filter.active {
+  background-color: #FFDD55;
+  color: #000;
+}
+
+.filter:hover {
+  background-color: #ddd;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #FFF;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 16px;
+  background: none;
+  color: #FFF;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #FFF;
+  padding-left: 5px;
+}
+
+
 /* 文章區 */
-.post-container{
-  float: right;
+.post-container {
+  flex: 1; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* 控制 header 和 pagination 間的距離 */
+  gap: 10px;
+  padding: 20px;
   margin-top: 20px;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .post{
   width: 700px;
   height: 200px;
-  background-color: #BFBEC5;
+  background-color: #d3d2d7;
   padding: 20px 30px;
   border-radius: 20px;
-  margin: 12px 0;
+  margin: 8px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .post-container .post-tags{
@@ -68,7 +422,7 @@ h3 {
 }
 
 .pagination a {
-  color: #333;
+  color: #FFF;
   text-decoration: none;
   padding: 6px 12px;
   border-radius: 50%;
@@ -80,15 +434,15 @@ h3 {
 }
 
 .pagination .active {
-  background-color: #b0c7ff;
-  color: #333;
+  background-color: #FFDD55;
+  color: #FFF;
   font-weight: bold;
 }
 
 .pagination .prev, .pagination .next {
   padding: 6px 10px;
   border-radius: 4px;
-  color: #333;
+  color: #FFF;
 }
 
 .pagination .prev:hover, .pagination .next:hover {
@@ -97,4 +451,168 @@ h3 {
 
 .pagination span {
   color: #888;
+}
+
+.add-post-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #42769e;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-post-btn:hover {
+  background-color: #345a7e;
+}
+
+/* footer */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 60px;
+  background: linear-gradient(to bottom, #333, #000);
+  color: #fff;
+  gap: 300px;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+  gap: 5px; 
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.logo-section h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+}
+
+.footer-links {
+  display: flex;
+  gap: 60px;
+  
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer-links a:hover {
+  color: #FFDD55;
+}
+
+.bottom-section {
+  display: flex;
+  align-items: center;
+  gap: 160px;
+}
+
+.subscribe-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.email-input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.subscribe-btn {
+  padding: 8px 16px;
+  background-color: #385EAD;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.subscribe-btn:hover {
+  background-color: #0056b3;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  font-size: 30px;
+  transition: all 0.3s ease; 
+}
+
+.social-icons a:hover{
+  transform: scale(1.1) rotate(10deg); 
+}
+
+
+@media screen and (max-width: 768px) {
+  
+  .footer {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+  }
+  .logo-section {
+      gap: 10px;
+  }
+  .nav-container {
+      align-items: center;
+      gap: 20px;
+  }
+  .footer-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+  }
+  .bottom-section {
+      flex-direction: column;
+      gap: 20px;
+  }
+  .subscribe-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+  .social-icons {
+      font-size: 26px;
+      gap: 15px;
+  }
+}
+
+.TibaMe{
+  text-align: center;
+  color: #ddd;
+  background-color: #000;
 }

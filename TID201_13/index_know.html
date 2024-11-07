@@ -8,33 +8,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    
     <header>
-        <div class="head_logo">
-            <a href="index_frontpage.html">
-            <img src="./img/00_logo.png" alt="logo">
-            </a>
+        <input type="checkbox" id="menu_control">
+        <div>
+            <a href="./index_frontpage.html"><img src="./img/00_logo.png" alt="logo"></a>
             <h1>密室集結站</h1>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index_know.html">認識密室逃脫</a></li>
-                <li><a href="#尋找密室">尋找密室</a></li>
-                <li><a href="#熱門推薦">熱門推薦</a></li>
-                <li><a href="#心得分享">心得分享</a></li>
-                <li><a href="#揪團遊玩">揪團遊玩</a></li>
-            </ul>
-        </nav>
-        <button type="submit">登入探索</button>
+        <div class="menu-wrapper">
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="./index_know.html">認識密室逃脫</a></li>
+                    <li><a href="./index_Popular.html">熱門推薦</a></li>
+                    <li><a href="./index_find.html">尋找密室</a></li>
+                    <li><a href="./index_Experience.html">心得分享</a></li>
+                    <li><a href="./index_play.html">揪團遊玩</a></li>
+                </ul>
+            </nav>
+            <button type="button" onclick="openModal()">登入探索</button>
+        </div>
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
     </header>
-    <div class="banner">
-        <img src="./img/what_banner_g.gif">
+
+    <!-- 會員登入/註冊 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'login')">登入</button>
+                <button class="tablinks" onclick="openTab(event, 'register')">註冊</button>
+            </div>
+            <div id="login" class="tabcontent" style="display: block;">
+                <h2>會員登入</h2>
+                <form>
+                    <label for="login-email">電子郵件</label>
+                    <input type="email" id="login-email" required>
+                    <label for="login-password">密碼</label>
+                    <input type="password" id="login-password" required>
+                    <button type="submit">登入</button>
+                </form>
+            </div>
+            <div id="register" class="tabcontent">
+                <h2>會員註冊</h2>
+                <form>
+                    <label for="register-nickname">暱稱</label>
+                    <input type="text" id="register-nickname" required>
+                    <label for="register-email">電子郵件</label>
+                    <input type="email" id="register-email" required>
+                    <label for="register-password">密碼</label>
+                    <input type="password" id="register-password" required>
+                    <button type="submit">註冊</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <div class="container1">
+    <div class="banner">
+        <img src="./img/what_banner_g.gif" alt="">
+    </div>
+
+    <div class="container1 fade-in-left">
         <div class="container1-text">
             <h1>什麼是密室逃脫？</h1>
             <p>如果你近年常聽人說「實境遊戲」、「密室逃脫」，可是還沒實際玩過，那你應該來看看這到底是什麼樣的遊戲。</p>
-            <a href="index_know_what.html" class="checkmore">
+            <a href="index_know-1.html" class="checkmore">
                 <img src="./img/readmore.png">
             </a>
         </div>
@@ -43,24 +82,24 @@
         </div>
     </div>
     
-    <div class="container2">
+    <div class="container2 fade-in-right">
         <div class="image-section2">
             <img src="./img/know_how.png" alt="如何成功逃出神秘房間">
         </div>
         <div class="container2-text">
             <h1>如何成功逃出神秘房間</h1>
             <p>密室逃脫是一種結合了解謎、合作和冒險的娛樂活動。在這裡，參加者將被鎖在一個主題房間中，必須在限時內解決各種謎題，才能成功逃脫。這篇文章將為你提供一些實用的建議，幫助你在密室逃脫中脫穎而出。</p>
-            <a href="index_know_what.html" class="checkmore">
+            <a href="index_know-2.html" class="checkmore">
                 <img src="./img/readmore.png">
             </a>
         </div>    
     </div>
 
-    <div class="container3">
+    <div class="container3 fade-in-left">
         <div class="container3-text">
             <h1>實境體驗分類概述</h1>
             <p>密室逃脫、實境解謎、角色扮演遊戲、沈浸式劇場，快被琳瑯滿目的種類搞昏頭了嗎？這篇帶你看怎麼區別。</p>
-            <a href="index_know_what.html" class="checkmore">
+            <a href="index_know-3.html" class="checkmore">
                 <img src="./img/readmore.png">
             </a>
         </div>
@@ -71,7 +110,7 @@
     
     <div class="newbie">
         <h2>適合新手的遊戲</h2>
-        <button class="see-more-btn">More...</button>
+        <button type="button" class="see-more-btn">More...</button>
     </div>
 
 
@@ -151,39 +190,96 @@
     </section>
     
     <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src="./img/00_logo.png" alt="logo">
-            <h3>Escape room game</h3>
+        <div class="logo-section">
+            <img src="./img/00_logo.png" alt="Escape Room Logo" class="logo"> <!-- LOGO圖片 -->
+            <h1>Escape room game</h1>
         </div>
-        <div class="footer-container">
-        <nav>
-            <ul class="footer-links">
-                <li><a href="#認識密室逃脫">認識密室逃脫</a></li>
-                <li><a href="#尋找密室">尋找密室</a></li>
-                <li><a href="#熱門推薦">熱門推薦</a></li>
-                <li><a href="#心得分享">心得分享</a></li>
-                <li><a href="#揪團遊玩">揪團遊玩</a></li>
-            </ul>
-        </nav>
-    
-        <div class="footer-contact">
-            <div class="footer-subscribe">
-                <input type="email" placeholder="輸入 Email獲得最新消息" required>
-                <button type="submit">送出</button>
+        <div class="nav-container">
+            <nav class="footer-links">
+                <a href="./index_know.html">認識密室逃脫</a>
+                <a href="./index_find.html">尋找密室</a>
+                <a href="./index_Popular.html">熱門排行</a>
+                <a href="./index_Experience.html">心得分享</a>
+                <a href="#groups">揪團遊玩</a>
+            </nav>
+            <div class="bottom-section">
+                <div class="subscribe-section">
+                    <input type="email" placeholder="Your email" class="email-input">
+                    <button class="subscribe-btn">獲得最新消息</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank" aria-label="instagram" class="instagram"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+                    <a href="https://workspace.google.com/intl/zh-TW/gmail/" target="_blank" aria-label="email" class="femail"><i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+                </div>
             </div>
-            
-            <div class="social-icons">
-                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://workspace.google.com/intl/zh-TW/gmail/" target="_blank" aria-label="email"><i class="fa-solid fa-envelope"></i></i></a>
-            </div>
-        </div>
         </div>
     </footer>
-    <div class="declare">
-        <P>本網站為緯育TibaMe前端工程師專業技術養成班TID201學員專題作品，本平台僅供學習、展示之用。若有侵權疑慮，您可以私訊[緯育TibaMe] ，後續會由專人協助處理。</P>
-    </div>
+    <div class="TibaMe">本網站為緯育TibaMe【TID201】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</div>
+
+    
+    <script>
+
+        // 漸入
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeInLeftElements = document.querySelectorAll('.fade-in-left');
+            const fadeInRightElements = document.querySelectorAll('.fade-in-right');
+
+            function checkVisibility(elements) {
+                elements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+                    // 當元素的頂部進入視窗 70% 才顯示
+                    if (rect.top < windowHeight * 0.7 && rect.bottom > 0) {
+                        element.classList.add('visible');
+                    } else {
+                        element.classList.remove('visible');
+                    }
+                });
+            }
+
+            // 監聽滾動事件
+            window.addEventListener('scroll', function() {
+                checkVisibility(fadeInLeftElements);
+                checkVisibility(fadeInRightElements);
+            });
+
+            // 初始化檢查
+            checkVisibility(fadeInLeftElements);
+            checkVisibility(fadeInRightElements);
+        });
+
+        // 會員登入/註冊
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+    </script>
+    
 </body>
 </html>

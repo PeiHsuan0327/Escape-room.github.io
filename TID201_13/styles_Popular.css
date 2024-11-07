@@ -1,35 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    position: relative;
+}
+
+header div {
+    display: flex;
+    align-items: center; 
+}
+
+header img {
+    width: 100px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.logo {
+    display: flex;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    background-color: transparent;
+    padding: 0px;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+  }
+
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+header ul li a:hover {
+    text-decoration: underline;
+    color: #FFDD55;
+}
+
+button{
+    background-color: #FFDD55;
+    color: #FFF;
+    border: none; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header button:hover {
+    background-color: #FFC107;
+}
+
+/* 漢堡選單 */
+#menu_control {
+    display: none;
+}
+
+.menu_btn {
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #9795a6;
+    border-radius: 5px;
+    position: relative;
+}
+
+.menu_btn span {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    display: block;
+    overflow: hidden;
+}
+
+.menu_btn::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    left: 2px;
+    width: 36px;
+    background-color: #FFDD55;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    box-shadow: 0px 8px 0px #FFDD55, 0px -8px 0px #FFDD55;
+}
+
+@media screen and (max-width: 768px) {
+    .menu_btn {
+        display: block;
+    }
+
+    nav.nav-links {
+        display: none;
+    }
+
+    #menu_control:checked ~ .menu-wrapper nav {
+        display: block;
+        position: absolute;
+        top: 105px;
+        left: 0;
+        width: 60%;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 0;
+        background-color: transparent;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        font-size: 18px;
+        color: #fff;
+        border-bottom: 1px solid #444;
+        background-color: transparent;
+    }
+
+    nav ul li a:hover {
+        color: #FFDD55;
+    }
+}
 
 
+/* 模態框:會員登入、註冊 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab button.active {
+    background-color: #FFDD55;
+    color: #fff;
+}
+
+.tabcontent {
+    display: none;
+    color:#000
+}
+
+.tabcontent h2 {
+    color:#000
+ 
+}
+
+
+.tabcontent form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabcontent form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.tabcontent form button {
+    padding: 10px;
+    background-color: #FFDD55;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 每月推薦 */
 .monthly-recommendation{
     background-image: url('./img/popular_bg.png');
-    background-size: cover; /* 背景圖片覆蓋整個區域 */
-    background-position: center; /* 將圖片置中 */
-    background-repeat: no-repeat; /* 防止背景圖片重複 */
-    padding: 40px 0; /* 上下留白，確保背景圖片顯示效果 */
-    
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    padding: 40px 0; 
 }
 
 .game-cards{
     width: 100%;
     display: flex;
-    justify-content: center; /* 水平置中 */
-    align-items: center; /* 垂直置中 */
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
     margin-top: 10px;
     margin-right:auto ;
     margin-left: auto;
-    flex-wrap: wrap; /* 允許卡片在小螢幕上換行 */
+    flex-wrap: wrap;
 }
 
 .game-card {
     background-color: rgba(151, 149, 166, 0.8);
-    padding: 5px;
+    padding: 8px;
     border-radius: 10px;
-    width: 15%;
+    width: 215px;
     text-align: left; 
     margin: 6px;
     transition: all 0.3s ease;
-    
 }
 
 .game-card:hover {
@@ -41,26 +273,30 @@
     width: 100%;
 }
 
-h2{
+h2 {
     font-size: 32px;
     color: #fff;
     text-align: center;
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
-
 
 .game-card h3 {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* 靠左对齐 */
+    justify-content: flex-start;
+    margin: 10px 0;
+    font-weight: bold;
+    position: relative;
 }
 
 .game-card p {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* 靠左对齐 */
-    font-weight: bold;   
+    justify-content: flex-start;
+    font-weight: bold;
+    margin: 5px 0;
 }
 
 .icon {
@@ -71,18 +307,158 @@ h2{
 }
 
 .icon-right {
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
     vertical-align: middle;
     float: right;
     margin-left: 10px;
 }
 
 .hotitem{
-    background-image: url('./img/hotitem-bg.png');
-    background-size: cover; /* 背景圖片覆蓋整個區域 */
-    background-position: center; /* 將圖片置中 */
-    background-repeat: no-repeat; /* 防止背景圖片重複 */
-    padding: 40px 0; /* 上下留白，確保背景圖片顯示效果 */
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    padding: 40px 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./img/hotitem-bg.png');
 }
 
+/* footer */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 60px;
+    background: linear-gradient(to bottom, #333, #000);
+    color: #fff;
+    gap: 300px;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    gap: 5px; 
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.logo-section h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+    
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #FFDD55;
+}
+
+.bottom-section {
+    display: flex;
+    align-items: center;
+    gap: 160px;
+}
+
+.subscribe-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.subscribe-btn {
+    padding: 8px 16px;
+    background-color: #385EAD;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.subscribe-btn:hover {
+    background-color: #0056b3;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    font-size: 30px;
+    transition: all 0.3s ease; 
+}
+
+.social-icons a:hover{
+    transform: scale(1.1) rotate(10deg); 
+}
+
+
+@media screen and (max-width: 768px) {
+    
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 20px;
+    }
+    .logo-section {
+        gap: 10px;
+    }
+    .nav-container {
+        align-items: center;
+        gap: 20px;
+    }
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .bottom-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .subscribe-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .social-icons {
+        font-size: 26px;
+        gap: 15px;
+    }
+}
+
+.TibaMe{
+    text-align: center;
+    background-color: #000;
+    color: #FFF;
+}
