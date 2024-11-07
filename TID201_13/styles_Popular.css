@@ -265,7 +265,7 @@ header button:hover {
 }
 
 .game-card:hover {
-    transform: scale(1.05); /* 懸停效果 */
+    transform: scale(1.05);
     background-color: #bebcca;
 }
 

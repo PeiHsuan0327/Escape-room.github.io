@@ -230,7 +230,6 @@
                     const rect = element.getBoundingClientRect();
                     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-                    // 當元素的頂部進入視窗 70% 才顯示
                     if (rect.top < windowHeight * 0.7 && rect.bottom > 0) {
                         element.classList.add('visible');
                     } else {

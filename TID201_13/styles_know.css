@@ -336,7 +336,7 @@ header button:hover {
 .checkmore img{
     width: 30%;
     height: auto;
-    float: right; /* 讓圖片完全靠右 */
+    float: right;
 }
 
 
@@ -523,13 +523,6 @@ header button:hover {
     margin-left: 10px;
 }
 
-
-@media (max-width: 1024px) and (min-width: 768px) {
-    .game-card {
-        width: 22%;
-    }
-}
-
 @media (max-width: 768px) {
     .game-card {
         width: 60%;
@@ -537,10 +530,7 @@ header button:hover {
     }
 }
 
-
-
 /* footer */
-
 .footer {
     display: flex;
     align-items: center;

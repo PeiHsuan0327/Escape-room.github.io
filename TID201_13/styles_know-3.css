@@ -282,16 +282,16 @@ img {
 
 .breadcrumb-item a {
     text-decoration: none;
-    color: #cbae6b; /* 淡金色文字 */
+    color: #cbae6b;
     transition: color 0.3s ease;
 }
 
 .breadcrumb-item a:hover {
-    color: #756230; /* 懸停時更亮的顏色 */
+    color: #756230;
 }
 
 .breadcrumb-item.active {
-    color: #9d895e; /* 當前頁的顏色 */
+    color: #9d895e;
 }
     
 /* 內文部分 */
@@ -322,7 +322,7 @@ img {
     margin: 0 auto;
     text-align: left;
     padding-bottom: 10px;
-    border-bottom: 2px solid #333; /* 底線顏色與厚度 */
+    border-bottom: 2px solid #333;
     margin-top: 50px;
 }
 
@@ -425,7 +425,7 @@ img {
 }
 
 #backToTopBtn img {
-    width: 70px; /* 調整圖片大小 */
+    width: 70px;
     height: 70px;
     display: block;
 }
