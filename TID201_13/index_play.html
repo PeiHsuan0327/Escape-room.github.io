@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>揪團遊玩</title>
+    <link rel="stylesheet" href="styles_play.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+    <header>
+        <input type="checkbox" id="menu_control">
+        <div>
+            <a href="./index_frontpage.html"><img src="./img/00_logo.png" alt="logo"></a>
+            <h1>密室集結站</h1>
+        </div>
+        <div class="menu-wrapper">
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="./index_know.html">認識密室逃脫</a></li>
+                    <li><a href="./index_Popular.html">熱門推薦</a></li>
+                    <li><a href="./index_find.html">尋找密室</a></li>
+                    <li><a href="./index_Experience.html">心得分享</a></li>
+                    <li><a href="./index_play.html">揪團遊玩</a></li>
+                </ul>
+            </nav>
+            <button type="button" onclick="openModal()">登入探索</button>
+        </div>
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+    </header>
+
+    <!-- 會員登入/註冊 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'login')">登入</button>
+                <button class="tablinks" onclick="openTab(event, 'register')">註冊</button>
+            </div>
+            <div id="login" class="tabcontent" style="display: block;">
+                <h2>會員登入</h2>
+                <form>
+                    <label for="login-email">電子郵件</label>
+                    <input type="email" id="login-email" required>
+                    <label for="login-password">密碼</label>
+                    <input type="password" id="login-password" required>
+                    <button type="submit">登入</button>
+                </form>
+            </div>
+            <div id="register" class="tabcontent">
+                <h2>會員註冊</h2>
+                <form>
+                    <label for="register-nickname">暱稱</label>
+                    <input type="text" id="register-nickname" required>
+                    <label for="register-email">電子郵件</label>
+                    <input type="email" id="register-email" required>
+                    <label for="register-password">密碼</label>
+                    <input type="password" id="register-password" required>
+                    <button type="submit">註冊</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 橫幅 -->
+    <div class="banner">
+        <img src="./img/play_banner.png" alt="Play Game Banner">
+    </div>
+
+    <!-- 主要內容區 -->
+    <div class="container">
+        <!-- 左側篩選區 -->
+        <aside class="sidebar">
+            <input type="text" placeholder="關鍵字">
+            
+            <select>
+                <option value="">地區</option>
+                <option value="台北">台北</option>
+                <option value="桃園">桃園</option>
+                <option value="新竹">新竹</option>
+                <option value="台中">台中</option>
+                <option value="臺南">臺南</option>
+                <option value="高雄">高雄</option>
+            </select>
+            
+            <section class="search-section">
+                <input type="text" id="dateRangePicker" placeholder="選擇日期區間">
+            </section>
+
+            <div class="sidebar-buttons">
+                <button type="button">重設</button>
+                <button type="button">搜尋</button>
+            </div>
+
+            <section class="subscription">
+                <h3>獲得最新揪團資訊</h3>
+                <input type="email" placeholder="Enter your email">
+                <button type="button">訂閱</button>
+            </section>
+        
+        </aside>
+        
+        <!-- 主內容區域 -->
+        <main class="content">
+            
+            <!-- 卡片列表 -->
+            <div class="card-grid">
+                
+                <div class="card">
+                    <img src="./img/play_card01.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 台北市
+                        </p>
+                        <h3>謎影：重慶迷霧</h3>
+                        <p>#差一位成團 #男女不限</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card02.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 高雄市
+                        </p>
+                        <h3>迷屍克蘿伊</h3>
+                        <p>#歡迎新手 #非恐</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card03.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 新北市
+                        </p>
+                        <h3>這個Case有點Big</h3>
+                        <p>#歡迎新手</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card01.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 台北市
+                        </p>
+                        <h3>謎影：重慶迷霧</h3>
+                        <p>#差一位成團 #男女不限</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card02.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 高雄市
+                        </p>
+                        <h3>迷屍克蘿伊</h3>
+                        <p>#歡迎新手 #非恐</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card03.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 新北市
+                        </p>
+                        <h3>這個Case有點Big</h3>
+                        <p>#歡迎新手</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card01.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 台北市
+                        </p>
+                        <h3>謎影：重慶迷霧</h3>
+                        <p>#差一位成團 #男女不限</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card02.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 高雄市
+                        </p>
+                        <h3>迷屍克蘿伊</h3>
+                        <p>#歡迎新手 #非恐</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card03.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 新北市
+                        </p>
+                        <h3>這個Case有點Big</h3>
+                        <p>#歡迎新手</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card01.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 台北市
+                        </p>
+                        <h3>謎影：重慶迷霧</h3>
+                        <p>#差一位成團 #男女不限</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card02.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 高雄市
+                        </p>
+                        <h3>迷屍克蘿伊</h3>
+                        <p>#歡迎新手 #非恐</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="./img/play_card03.png" alt="遊戲圖片">
+                    <div class="card-info">
+                        <p>
+                            <i class="fa-regular fa-calendar" style="color: #ffffff;"></i> Fri 09 Feb 2024
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> 新北市
+                        </p>
+                        <h3>這個Case有點Big</h3>
+                        <p>#歡迎新手</p>
+                        <a href="#">View event<i class="fa-solid fa-angles-right" style="color: #8920df;"></i></a>
+                    </div>
+                </div>
+            
+            </div>
+            
+            <!-- 分頁按鈕 -->
+            <div class="pagination">
+                <a href="#">Previous</a>
+                <a href="#">1</a>
+                <a href="#" class="active">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <span>...</span>
+                <a href="#">Next</a>
+            </div>
+        </main>
+    </div>
+
+    <div class="floating-buttons">
+        <button class="action-button create-group">
+            <img src="./img/playteam.png" alt="發起揪團" width="60" height="60">
+        </button>
+        <button class="action-button go-top" onclick="scrollToTop()">
+            <img src="./img/go top.png" alt="Go Top" width="60" height="60">
+        </button>
+    </div>
+
+    <footer class="footer">
+        <div class="logo-section">
+            <img src="./img/00_logo.png" alt="Escape Room Logo" class="logo"> <!-- LOGO圖片 -->
+            <h1>Escape room game</h1>
+        </div>
+        <div class="nav-container">
+            <nav class="footer-links">
+                <a href="./index_know.html">認識密室逃脫</a>
+                <a href="./index_find.html">尋找密室</a>
+                <a href="./index_Popular.html">熱門排行</a>
+                <a href="./index_Experience.html">心得分享</a>
+                <a href="./index_play.html">揪團遊玩</a>
+            </nav>
+            <div class="bottom-section">
+                <div class="subscribe-section">
+                    <input type="email" placeholder="Your email" class="email-input">
+                    <button class="subscribe-btn">獲得最新消息</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank" aria-label="instagram" class="instagram"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+                    <a href="https://workspace.google.com/intl/zh-TW/gmail/" target="_blank" aria-label="email" class="femail"><i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="TibaMe">本網站為緯育TibaMe【TID201】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        // 會員登入/註冊
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+        
+        //日期選擇器
+        document.addEventListener("DOMContentLoaded", function() {
+            flatpickr("#dateRangePicker", {
+                mode: "range",  
+                dateFormat: "Y-m-d",  
+                locale: "zh" 
+            });
+        });
+
+        // go top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+         }
+    </script>
+
+</body>
+</html>

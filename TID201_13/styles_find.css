@@ -1,0 +1,551 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    position: relative;
+    height: 50px;
+}
+
+header div {
+    display: flex;
+    align-items: center; 
+}
+
+header img {
+    width: 70px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.logo {
+    display: flex;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    background-color: transparent;
+    padding: 0px;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+header ul li a:hover {
+    text-decoration: underline;
+    color: #FFDD55;
+}
+
+button{
+    background-color: #FFDD55;
+    color: #FFF;
+    border: none; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+header button:hover {
+    background-color: #FFC107;
+}
+
+/* 漢堡選單 */
+#menu_control {
+    display: none;
+}
+
+.menu_btn {
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #9795a6;
+    border-radius: 5px;
+    position: relative;
+}
+
+.menu_btn span {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    display: block;
+    overflow: hidden;
+}
+
+.menu_btn::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    left: 2px;
+    width: 36px;
+    background-color: #FFDD55;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    box-shadow: 0px 8px 0px #FFDD55, 0px -8px 0px #FFDD55;
+}
+
+@media screen and (max-width: 768px) {
+    .menu_btn {
+        display: block;
+    }
+
+    nav.nav-links {
+        display: none;
+    }
+
+    #menu_control:checked ~ .menu-wrapper nav {
+        display: block;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 50%;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 0;
+        background-color: transparent;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+        font-size: 18px;
+        color: #fff;
+        border-bottom: 1px solid #444;
+        background-color: transparent;
+    }
+
+    nav ul li a:hover {
+        color: #FFDD55;
+    }
+}
+
+
+/* 模態框:會員登入、註冊 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab button {
+    background-color: #ddd;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab button.active {
+    background-color: #FFDD55;
+    color: #fff;
+}
+
+.tabcontent {
+    display: none;
+    color:#000
+}
+
+.tabcontent form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabcontent form input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.tabcontent form button {
+    padding: 10px;
+    background-color: #FFDD55;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.container {
+    display: flex;
+}
+
+/* 左側面板 */
+.left-panel {
+    width: 30%;
+    padding: 20px;
+    background-color: #222;
+    overflow-y: auto;
+    max-height: 93vh;
+    border-right: 1px solid #333;
+}
+
+.left-panel h2 {
+    margin-bottom: 15px;
+    color: #ffc107;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dbda9d;
+}
+
+/* 搜尋區塊 */
+.search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-section input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #333;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.search-bottom {
+    display: flex;
+    gap: 40px;
+    align-items: center; 
+}
+
+.search-section select {
+    width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #333;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.search-section button {
+    width: 30%;
+    padding: 10px 10px;
+    background-color: #9d4edd;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-section button:hover {
+    background-color: #7014bc;
+}
+
+/* 店家清單 */
+.store-list {
+    margin-bottom: 20px;
+}
+
+.store-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.store-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.store-item h3 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: #ffc107;
+}
+
+.store-logo {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 1px solid #ffc107;
+}
+
+/* 隱藏詳細資訊 */
+.store-details {
+    display: none;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #c8c6c6;
+}
+
+.store-details p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.store-details i {
+    margin-right: 8px;
+}
+
+/* 遊戲清單 */
+.game-list {
+    margin-top: 30px;
+}
+
+.game-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.game-item:hover {
+    transform: scale(1.05);
+}
+
+.game-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    border: 2px solid #444;
+}
+
+.game-info h4 {
+    color: #ffc107;
+    margin: 5px 0;
+    font-size: 22px;
+}
+
+.game-info p {
+    font-size: 18px;
+    color: #c8c6c6;
+}
+
+/* 地圖區樣式 */
+.map-section {
+    width: 70%;
+    height: 100vh;
+    background-color: #111;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* footer */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 60px;
+    background: linear-gradient(to bottom, #333, #000);
+    color: #fff;
+    gap: 300px;
+    
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    gap: 5px; 
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.logo-section h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+    
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #FFDD55;
+}
+
+.bottom-section {
+    display: flex;
+    align-items: center;
+    gap: 160px;
+}
+
+.subscribe-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.subscribe-btn {
+    padding: 8px 16px;
+    background-color: #385EAD;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.subscribe-btn:hover {
+    background-color: #0056b3;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    font-size: 30px;
+    transition: all 0.3s ease; 
+}
+
+.social-icons a:hover{
+    transform: scale(1.1) rotate(10deg); 
+}
+
+
+@media screen and (max-width: 768px) {
+    
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 20px;
+    }
+    .logo-section {
+        gap: 10px;
+    }
+    .nav-container {
+        align-items: center;
+        gap: 20px;
+    }
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .bottom-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .subscribe-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .social-icons {
+        font-size: 26px;
+        gap: 15px;
+    }
+}
+
+.TibaMe{
+    text-align: center;
+}

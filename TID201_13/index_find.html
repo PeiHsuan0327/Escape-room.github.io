@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>尋找密室</title>
+    <link rel="stylesheet" href="styles_find.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://kit.fontawesome.com/c439339ff1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <header>
+        <input type="checkbox" id="menu_control">
+        <div>
+            <a href="./index_frontpage.html"><img src="./img/00_logo.png" alt="logo"></a>
+            <h2>密室集結站</h2>
+        </div>
+        <div class="menu-wrapper">
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="./index_know.html">認識密室逃脫</a></li>
+                    <li><a href="./index_Popular.html">熱門推薦</a></li>
+                    <li><a href="./index_find.html">尋找密室</a></li>
+                    <li><a href="./index_Experience.html">心得分享</a></li>
+                    <li><a href="./index_play.html">揪團遊玩</a></li>
+                </ul>
+            </nav>
+            <button type="button" onclick="openModal()">登入探索</button>
+        </div>
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+    </header>   
+
+    <!-- 會員登入/註冊 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'login')">登入</button>
+                <button class="tablinks" onclick="openTab(event, 'register')">註冊</button>
+            </div>
+            <div id="login" class="tabcontent" style="display: block;">
+                <h2>會員登入</h2>
+                <form>
+                    <label for="login-email">電子郵件</label>
+                    <input type="email" id="login-email" required>
+                    <label for="login-password">密碼</label>
+                    <input type="password" id="login-password" required>
+                    <button type="submit">登入</button>
+                </form>
+            </div>
+            <div id="register" class="tabcontent">
+                <h2>會員註冊</h2>
+                <form>
+                    <label for="register-nickname">暱稱</label>
+                    <input type="text" id="register-nickname" required>
+                    <label for="register-email">電子郵件</label>
+                    <input type="email" id="register-email" required>
+                    <label for="register-password">密碼</label>
+                    <input type="password" id="register-password" required>
+                    <button type="submit">註冊</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            
+            <section class="search-section">
+                <input type="text" id="searchInput" placeholder="搜尋店家或地區關鍵字...">
+                <div class="search-bottom">
+                    <select id="regionSelect">
+                        <option value="">選擇地區</option>
+                        <option value="台北">台北</option>
+                        <option value="新北">新北</option>
+                        <option value="桃園">桃園</option>
+                        <option value="台中">台中</option>
+                        <option value="臺南">臺南</option>
+                        <option value="高雄">高雄</option>
+                    </select>
+                    <button onclick="filterStores()">搜尋</button>
+                </div>
+            </section>
+            
+            <section class="store-list">
+                <h2>店家清單</h2>
+                <div class="store-item" onclick="toggleDetails(this); showLocation(25.060957336890525, 121.52257878739987, 'FunLock 放樂工作室')">
+                    <h3>
+                        <img src="./img/game-card03.png" alt="FunLock 放樂工作室 Logo" class="store-logo">
+                        FunLock 放樂工作室
+                    </h3>
+                    <div class="store-details">
+                        <p><i class="fa-solid fa-phone" style="color: #EAB9DA;"></i> 0907-101-822</p>
+                        <p><i class="fa-solid fa-location-dot fa-lg" style="color: #97A4F8;"></i> 台北市中山區中山北路二段112號7樓之4</p>
+                    </div>
+                </div>
+                <div class="store-item" onclick="toggleDetails(this); showLocation(25.05272277876372, 121.5699821224788, '笨蛋工作室')">
+                    <h3>
+                        <img src="./img/scene08.png" alt="笨蛋工作室 Logo" class="store-logo">
+                        笨蛋工作室
+                    </h3>
+                    <div class="store-details">
+                        <p><i class="fa-solid fa-phone" style="color: #EAB9DA;"></i> 02 8787 4387</p>
+                        <p><i class="fa-solid fa-location-dot fa-lg" style="color: #97A4F8;"></i> 105台北市松山區南京東路五段399號9樓</p>
+                    </div>
+                </div>
+                <div class="store-item" onclick="toggleDetails(this); showLocation(24.140711532519955, 120.67964477959498, '神不在場實境遊戲')">
+                    <h3>
+                        <img src="./img/story09.png" alt="神不在場實境遊戲 Logo" class="store-logo">
+                        神不在場實境遊戲
+                    </h3>
+                    <div class="store-details">
+                        <p><i class="fa-solid fa-phone" style="color: #EAB9DA;"></i> 04 2223 0406</p>
+                        <p><i class="fa-solid fa-location-dot fa-lg" style="color: #97A4F8;"></i> 400台中市中區平等街34號</p>
+                    </div>
+                </div>
+                <div class="store-item" onclick="toggleDetails(this); showLocation(25.002114580099924, 121.49809581163073, 'LoGin密室逃脫')">
+                    <h3>
+                        <img src="./img/monthly-login.png" alt="LoGin密室逃脫 Logo" class="store-logo">
+                        LoGin密室逃脫
+                    </h3>
+                    <div class="store-details">
+                        <p><i class="fa-solid fa-phone" style="color: #EAB9DA;"></i> 0963-606-082</p>
+                        <p><i class="fa-solid fa-location-dot fa-lg" style="color: #97A4F8;"></i> 23553新北市中和區連城路52號4樓</p>
+                    </div>
+                </div>
+                <div class="store-item" onclick="toggleDetails(this); showLocation(25.039958828192272, 121.57731305264213, '邏思起子')">
+                    <h3>
+                        <img src="./img/scary08.png" alt="邏思起子 Logo" class="store-logo">
+                        邏思起子
+                    </h3>
+                    <div class="store-details">
+                        <p><i class="fa-solid fa-phone" style="color: #EAB9DA;"></i> 0965-305-690</p>
+                        <p><i class="fa-solid fa-location-dot fa-lg" style="color: #97A4F8;"></i> 11076台北市信義區松德路12-2號</p>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="game-list">
+                <h2>此場館提供以下遊戲：</h2>
+                <div class="game-item">
+                    <img src="./img/findgame01.png" alt="天方夜譚">
+                    <div class="game-info">
+                        <h4>天方夜譚</h4>
+                        <p>$ 425 起  ⭐4.3 (851)</p>
+                    </div>
+                </div>
+                <div class="game-item">
+                    <img src="./img/findgame02.png" alt="蜀山">
+                    <div class="game-info">
+                        <h4>蜀山</h4>
+                        <p>$ 425 起  ⭐4.4 (991)</p>
+                    </div>
+                </div>
+                <div class="game-item">
+                    <img src="./img/findgame03.png" alt="蜀山">
+                    <div class="game-info">
+                        <h4>感染</h4>
+                        <p>$ 425 起  ⭐4.2 (870)</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    
+        <div class="map-section">
+            <div id="map"></div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="logo-section">
+            <img src="./img/00_logo.png" alt="Escape Room Logo" class="logo">
+            <h1>Escape room game</h1>
+        </div>
+        <div class="nav-container">
+            <nav class="footer-links">
+                <a href="./index_know.html">認識密室逃脫</a>
+                <a href="./index_find.html">尋找密室</a>
+                <a href="./index_Popular.html">熱門排行</a>
+                <a href="./index_Experience.html">心得分享</a>
+                <a href="#groups">揪團遊玩</a>
+            </nav>
+            <div class="bottom-section">
+                <div class="subscribe-section">
+                    <input type="email" placeholder="Your email" class="email-input">
+                    <button class="subscribe-btn">獲得最新消息</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank" aria-label="instagram" class="instagram"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+                    <a href="https://workspace.google.com/intl/zh-TW/gmail/" target="_blank" aria-label="email" class="femail"><i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="TibaMe">本網站為緯育TibaMe【TID201】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</div>
+    
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // 地圖設置
+        const map = L.map('map').setView([25.0330, 121.5654], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        function showLocation(lat, lng, title) {
+            map.setView([lat, lng], 15);
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup(`<b>${title}</b><br>位置: ${lat}, ${lng}`).openPopup();
+        }
+
+        // 顯示工作室詳細資訊
+        function toggleDetails(storeItem) {
+            const details = storeItem.querySelector(".store-details");
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+        
+        // 會員登入/註冊
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

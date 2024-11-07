@@ -3,151 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>心得分享</title>
     <link rel="stylesheet" href="styles_Experience.css">
     <script src="https://kit.fontawesome.com/c439339ff1.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-    <div class="banner">
-        <img src="./img/experience_banner.png">
+    <header>
+        <input type="checkbox" id="menu_control">
+        <div>
+            <a href="./index_frontpage.html"><img src="./img/00_logo.png" alt="logo"></a>
+            <h1>密室集結站</h1>
+        </div>
+        <div class="menu-wrapper">
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="./index_know.html">認識密室逃脫</a></li>
+                    <li><a href="./index_Popular.html">熱門推薦</a></li>
+                    <li><a href="./index_find.html">尋找密室</a></li>
+                    <li><a href="./index_Experience.html">心得分享</a></li>
+                    <li><a href="./index_play.html">揪團遊玩</a></li>
+                </ul>
+            </nav>
+            <button type="button" onclick="openModal()">登入探索</button>
+        </div>
+        <label for="menu_control" class="menu_btn">
+            <span>選單</span>
+        </label>
+    </header>
+
+    <!-- 會員登入/註冊 -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'login')">登入</button>
+                <button class="tablinks" onclick="openTab(event, 'register')">註冊</button>
+            </div>
+            <div id="login" class="tabcontent" style="display: block;">
+                <h2>會員登入</h2>
+                <form>
+                    <label for="login-email">電子郵件</label>
+                    <input type="email" id="login-email" required>
+                    <label for="login-password">密碼</label>
+                    <input type="password" id="login-password" required>
+                    <button type="submit">登入</button>
+                </form>
+            </div>
+            <div id="register" class="tabcontent">
+                <h2>會員註冊</h2>
+                <form>
+                    <label for="register-nickname">暱稱</label>
+                    <input type="text" id="register-nickname" required>
+                    <label for="register-email">電子郵件</label>
+                    <input type="email" id="register-email" required>
+                    <label for="register-password">密碼</label>
+                    <input type="password" id="register-password" required>
+                    <button type="submit">註冊</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-<div class="post-container">
-    
-    <article class="post">
-        <div class="write">
-            <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #42769e;"></i> 匿名</h3>
-            <p class="post-tags">#心得 #有雷 晴天娃娃</p>
-            <p>NPC人好好！非常用心的裝置還入其境！新手推薦！</p>
-            <div class="post-meta">
-                <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
-                <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
-                <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+    <div class="container">
+        <!-- 左側導航欄 -->
+        <aside class="sidebar">
+            <div class="user-profile">
+                <i class="fa-solid fa-circle-user fa-2x" style="color: #82bae4;"></i>
+                <p>使用者</p>
+            </div>
+                <nav class="menu">
+                    <a href="#">我的收藏</a>
+                    <a href="#">我的貼文</a>
+                    <a href="#">新增貼文</a>
+                </nav>
+        </aside>
+
+        <div class="post-container">      
+            <div class="filter-search">
+                <div class="filters">
+                    <button class="filter active">全部</button>
+                    <button class="filter">熱門</button>
+                    <button class="filter">最新</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="關鍵字">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
+            
+            <article class="post">
+                <div class="write">
+                    <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #42769e;"></i> 匿名</h3>
+                    <p class="post-tags">#心得 #有雷 晴天娃娃</p>
+                    <p>NPC人好好！非常用心的裝置還入其境！新手推薦！</p>
+                    <div class="post-meta">
+                        <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
+                        <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
+                        <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+                    </div>
+                </div>
+                <span>
+                    <img src="./img/experience01.png" alt="">
+                </span>
+            </article>
+
+            <article class="post">
+                <div class="write">
+                    <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #bf6e7a;"></i> 焦糖</h3>
+                    <p class="post-tags">#請益 台中恐怖密室逃脫</p>
+                    <p>想請問各位❤️❤️❤️ 台中恐怖的密室 一定要有NPC...</p>
+                    <div class="post-meta">
+                        <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
+                        <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
+                        <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="write">
+                    <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #bf6e7a;"></i> 扣扣</h3>
+                    <p class="post-tags">#請益 關於恐怖密室的強度</p>
+                    <p>NPC人好好！非常用心的裝置還入其境！新手推薦！</p>
+                    <div class="post-meta">
+                        <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
+                        <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
+                        <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="write">
+                    <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #bf6e7a;"></i> 呱呱</h3>
+                    <p class="post-tags">台中密室推薦？</p>
+                    <p>有看到一家價錢不算貴的...</p>
+                    <div class="post-meta">
+                        <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
+                        <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
+                        <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+                    </div>
+                </div>
+                <span>
+                    <img src="./img/experience02.png" alt="">
+                </span>
+            </article>
+
+            <article class="post">
+                <div class="write">
+                    <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #42769e;"></i> 小鎧</h3>
+                    <p class="post-tags">台中恐怖密室推薦</p>
+                    <p>最近要和六個朋友一起去玩恐怖密室</p>
+                    <div class="post-meta">
+                        <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
+                        <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
+                        <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+                    </div>
+                </div>
+                <span>
+                    <img src="./img/experience03.png" alt="">
+                </span>
+            </article>
+
+            <article class="post">
+                <div class="write">
+                    <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #42769e;"></i> zero</h3>
+                    <p class="post-tags">適合求婚的密室</p>
+                    <p>安安大家 最近我朋友想在台北的密室求婚</p>
+                    <div class="post-meta">
+                        <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
+                        <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
+                        <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+                    </div>
+                </div>
+                <span>
+                    <img src="./img/experience04.png" alt="">
+                </span>
+            </article>
+
+            <article class="post">
+                <div class="write">
+                    <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #bf6e7a;"></i> 匿名</h3>
+                    <p class="post-tags">密室逃脫的行內話</p>
+                    <p>今天想分享一下一些關於密室的行內話 給大家參考～～～</p>
+                    <div class="post-meta">
+                        <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
+                        <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
+                        <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post">
+                <div class="write">
+                    <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #42769e;"></i> soonie</h3>
+                    <p class="post-tags">想玩密室逃脫</p>
+                    <p>請問各位大大有沒有推薦的密室逃脫</p>
+                    <div class="post-meta">
+                        <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
+                        <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
+                        <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
+                    </div>
+                </div>
+                <span>
+                    <img src="./img/experience05.png" alt="">
+                </span>
+            </article>
+            <div class="pagination">
+                <a href="#" class="prev">Previous</a>
+                <a href="#">1</a>
+                <a href="#" class="active">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <span>...</span>
+                <a href="#">11</a>
+                <a href="#" class="next">Next</a>
             </div>
         </div>
-        <span>
-            <img src="./img/experience01.png" alt="">
-        </span>
-    </article>
 
-    <article class="post">
-        <div class="write">
-            <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #bf6e7a;"></i> 焦糖</h3>
-            <p class="post-tags">#請益 台中恐怖密室逃脫</p>
-            <p>想請問各位❤️❤️❤️ 台中恐怖的密室 一定要有NPC...</p>
-            <div class="post-meta">
-                <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
-                <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
-                <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
-            </div>
-        </div>
-    </article>
-
-    <article class="post">
-        <div class="write">
-            <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #bf6e7a;"></i> 扣扣</h3>
-            <p class="post-tags">#請益 關於恐怖密室的強度</p>
-            <p>NPC人好好！非常用心的裝置還入其境！新手推薦！</p>
-            <div class="post-meta">
-                <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
-                <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
-                <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
-            </div>
-        </div>
-    </article>
-
-    <article class="post">
-        <div class="write">
-            <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #bf6e7a;"></i> 呱呱</h3>
-            <p class="post-tags">台中密室推薦？</p>
-            <p>有看到一家價錢不算貴的...</p>
-            <div class="post-meta">
-                <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
-                <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
-                <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
-            </div>
-        </div>
-        <span>
-            <img src="./img/experience02.png" alt="">
-        </span>
-    </article>
-
-    <article class="post">
-        <div class="write">
-            <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #42769e;"></i> 小鎧</h3>
-            <p class="post-tags">台中恐怖密室推薦</p>
-            <p>最近要和六個朋友一起去玩恐怖密室</p>
-            <div class="post-meta">
-                <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
-                <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
-                <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
-            </div>
-        </div>
-        <span>
-            <img src="./img/experience03.png" alt="">
-        </span>
-    </article>
-
-    <article class="post">
-        <div class="write">
-            <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #42769e;"></i> zero</h3>
-            <p class="post-tags">適合求婚的密室</p>
-            <p>安安大家 最近我朋友想在台北的密室求婚</p>
-            <div class="post-meta">
-                <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
-                <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
-                <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
-            </div>
-        </div>
-        <span>
-            <img src="./img/experience04.png" alt="">
-        </span>
-    </article>
-
-    <article class="post">
-        <div class="write">
-            <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #bf6e7a;"></i> 匿名</h3>
-            <p class="post-tags">密室逃脫的行內話</p>
-            <p>今天想分享一下一些關於密室的行內話 給大家參考～～～</p>
-            <div class="post-meta">
-                <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
-                <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
-                <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
-            </div>
-        </div>
-    </article>
-
-    <article class="post">
-        <div class="write">
-            <h3 class="post-title"><i class="fa-solid fa-circle-user fa-lg" style="color: #42769e;"></i> soonie</h3>
-            <p class="post-tags">想玩密室逃脫</p>
-            <p>請問各位大大有沒有推薦的密室逃脫</p>
-            <div class="post-meta">
-                <span><i class="fa-solid fa-heart" style="color: #e15141;"></i> 10</span>
-                <span><i class="fa-solid fa-message" style="color: #4185b9;"></i> 留言</span>
-                <span><i class="fa-solid fa-bookmark" style="color: #818892;"></i></i> 收藏</span>
-            </div>
-        </div>
-        <span>
-            <img src="./img/experience05.png" alt="">
-        </span>
-    </article>
-
-
-    <div class="pagination">
-        <a href="#" class="prev">Previous</a>
-        <a href="#">1</a>
-        <a href="#" class="active">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <span>...</span>
-        <a href="#">11</a>
-        <a href="#" class="next">Next</a>
-    </div>
-
-
+    <!-- 右下加號按鈕 -->
+    <button class="add-post-btn"><i class="fa-solid fa-plus"></i></button>
 </div>
+    <footer class="footer">
+        <div class="logo-section">
+            <img src="./img/00_logo.png" alt="Escape Room Logo" class="logo"> <!-- LOGO圖片 -->
+            <h1>Escape room game</h1>
+        </div>
+        <div class="nav-container">
+            <nav class="footer-links">
+                <a href="./index_know.html">認識密室逃脫</a>
+                <a href="./index_find.html">尋找密室</a>
+                <a href="./index_Popular.html">熱門排行</a>
+                <a href="./index_Experience.html">心得分享</a>
+                <a href="./index_play.html">揪團遊玩</a>
+            </nav>
+            <div class="bottom-section">
+                <div class="subscribe-section">
+                    <input type="email" placeholder="Your email" class="email-input">
+                    <button class="subscribe-btn">獲得最新消息</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank" aria-label="instagram" class="instagram"><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook" style="color: #ffffff;"></i></a>
+                    <a href="https://workspace.google.com/intl/zh-TW/gmail/" target="_blank" aria-label="email" class="femail"><i class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="TibaMe">本網站為緯育TibaMe【TID201】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</div>
+
+    <script>
+        // 會員登入/註冊
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+
+        function openTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+    </script>
+
 </body>
 </html>
